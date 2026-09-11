@@ -1,449 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ponchito — Your Name</title>
-<meta name="description" content="Ponchito — fashion, portfolio and journal.">
+<title>Marina Sandoval</title>
+<meta name="description" content="Marina Sandoval — diseñadora de modas. Sostenibilidad, calzado y operaciones. Ciudad de México.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-  /* ============ TOKENS ============ */
-  :root{
-    --paper:#efece4;          /* off-white card stock */
-    --ink:#1a1a1a;            /* letterpress black */
-    --ink-mid:#5c584f;
-    --ink-faint:#8f8a7e;
-    --blue:#647d94;           /* greyish pale blue — carries all small type */
-    --pink:#e3ccc6;           /* pale pink accent */
-    --yellow:#e6d9b0;         /* pale yellow accent */
-    --rule:rgba(26,26,26,0.22);
-    --rule-faint:rgba(26,26,26,0.12);
-    --gutter:clamp(1.25rem,4vw,3.5rem);
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"IBM Plex Mono",ui-monospace,"Courier New",monospace;
-    font-weight:400;
-    -webkit-font-smoothing:antialiased;
-  }
-  img{max-width:100%;display:block;}
-  a{color:inherit;text-decoration:none;}
-  button{font-family:inherit;font-size:inherit;background:none;border:none;color:inherit;cursor:pointer;padding:0;}
-  input,iframe{font-family:inherit;}
-  ::selection{background:var(--ink);color:var(--paper);}
-  :focus-visible{outline:1px solid var(--blue);outline-offset:3px;}
-
-  /* ============ TYPE ============
-     Modelled on the letterpress card: uppercase, wide-tracked,
-     even stroke. Body copy drops the tracking to stay readable. */
-  .display-xl{
-    font-size:clamp(2rem,7.5vw,5.5rem);
-    font-weight:500;
-    line-height:1.05;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    margin:0;
-  }
-  .display-md{
-    font-size:clamp(1.35rem,3.2vw,2.2rem);
-    font-weight:500;
-    line-height:1.2;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    margin:0;
-  }
-  .lede{
-    font-size:0.95rem;
-    font-weight:400;
-    line-height:1.75;
-    color:var(--ink-mid);
-    max-width:46ch;
-  }
-  .body-copy{
-    font-size:0.95rem;
-    font-weight:400;
-    line-height:1.8;
-    max-width:62ch;
-  }
-  .meta{
-    font-size:0.72rem;
-    font-weight:400;
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    color:var(--blue);
-  }
-  .meta-ink{color:var(--ink-faint);}
-
-  /* ============ SHELLS ============ */
-  .wrap{padding:0 var(--gutter);}
-  .section-head{
-    padding:7rem 0 3rem;
-    display:flex;
-    flex-direction:column;
-    gap:1.2rem;
-  }
-  .rule{height:1px;background:var(--rule);border:none;margin:0;}
-
-  /* ============ NAV ============ */
-  .nav{
-    position:fixed;top:0;left:0;right:0;z-index:60;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:1.1rem var(--gutter);
-    background:var(--paper);
-    border-bottom:1px solid var(--rule-faint);
-  }
-  .nav-mark{
-    display:flex;align-items:center;gap:0.5rem;
-    font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;
-  }
-  .nav-dog{
-    width:30px;height:17px;
-    color:var(--blue);
-    flex:none;
-  }
-  .nav-links{
-    display:flex;gap:clamp(1rem,3vw,2.6rem);
-    list-style:none;margin:0;padding:0;
-  }
-  .nav-links a{
-    font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-mid);
-  }
-  .nav-links a:hover{color:var(--ink);}
-  .nav-toggle{display:none;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;}
-
-  @media (max-width:760px){
-    .nav-links{
-      position:fixed;inset:0;
-      background:var(--paper);
-      flex-direction:column;justify-content:center;align-items:flex-start;
-      padding:0 var(--gutter);gap:1.8rem;
-      display:none;
-    }
-    .nav-links.is-open{display:flex;}
-    .nav-links a{font-size:1rem;}
-    .nav-toggle{display:inline-block;position:relative;z-index:70;}
-  }
-
-  /* ============ UPLOAD SLOT ============ */
-  .upload-slot{
-    position:relative;
-    background:#e6e2d9;
-    background-size:cover;background-position:center;
-    display:flex;align-items:center;justify-content:center;
-    cursor:pointer;overflow:hidden;
-    border:1px solid var(--rule-faint);
-  }
-  .upload-slot.has-image .upload-hint{display:none;}
-  .upload-slot.has-image{border-color:transparent;}
-  .upload-hint{
-    font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
-    color:var(--ink-faint);text-align:center;padding:1rem;
-  }
-  .upload-slot input[type=file]{display:none;}
-
-  /* each section carries its own tint, so the page has colour
-     before any photo is in, and keeps it in the rules after */
-  .hero .upload-slot{background-color:#dde3e8;}
-  #look .upload-slot{background-color:var(--pink);}
-  #portfolio .upload-slot{background-color:var(--yellow);}
-  #look .look-caption{border-top-color:#d8c3bd;}
-  #ponchito{background-color:#dde3e8;}
-  ::selection{background:var(--yellow);color:var(--ink);}
-
-  /* ============ HERO ============ */
-  .hero{
-    height:100vh;min-height:540px;
-    display:flex;align-items:flex-end;
-    position:relative;
-  }
-  .hero .upload-slot{position:absolute;inset:0;border:none;background:#e6e2d9;}
-  .hero-foot{
-    position:relative;z-index:2;width:100%;
-    display:flex;justify-content:space-between;align-items:baseline;
-    padding:0 var(--gutter) 1.6rem;
-  }
-
-  /* ============ LOOK ============ */
-  .look-list{display:flex;flex-direction:column;gap:clamp(3.5rem,7vw,6rem);}
-  .look-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--gutter);align-items:end;}
-  .look-photo{aspect-ratio:4/5;}
-  .look-photo.is-tall{aspect-ratio:3/4.4;}
-  .look-caption{
-    grid-column:1 / -1;
-    display:flex;justify-content:space-between;align-items:baseline;gap:2rem;
-    border-top:1px solid var(--rule);
-    padding-top:0.8rem;
-  }
-  .look-caption .cap-text{
-    font-size:0.85rem;color:var(--ink-mid);outline:none;max-width:44ch;line-height:1.7;
-  }
-  .look-caption .cap-text:focus{color:var(--ink);}
-  @media (max-width:760px){ .look-row{grid-template-columns:1fr;} }
-
-  /* ============ PONCHITO ============ */
-  #ponchito{
-    height:100vh;min-height:540px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    overflow:hidden;position:relative;
-    background:#e6e2d9;
-  }
-  .film{position:absolute;inset:0;}
-  .film video{width:100%;height:100%;object-fit:cover;}
-
-  /* Logo: both ovals share one fixed width so CH and IT match exactly. */
-  .brand-mark{
-    position:relative;z-index:2;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--ink);
-    font-family:"Helvetica Neue",Arial,sans-serif;
-    font-weight:700;
-    font-size:clamp(1.9rem,8vw,5rem);
-    line-height:1;
-  }
-  .brand-mark .word{letter-spacing:0.01em;}
-  .brand-mark .ring{
-    width:1.95em;
-    height:1.28em;
-    border:0.055em solid currentColor;
-    border-radius:50%;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    margin:0 0.03em;
-    letter-spacing:0.01em;
-  }
-  .brand-mark.on-film{color:#fff;}
-  .brand-tagline{
-    position:relative;z-index:2;margin-top:1.6rem;text-align:center;
-  }
-  .brand-tagline p{
-    margin:0;font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;
-    color:var(--ink-mid);outline:none;
-  }
-  .brand-tagline.on-film p{color:rgba(255,255,255,0.85);}
-  .film-upload{
-    position:absolute;bottom:1.4rem;right:var(--gutter);z-index:3;
-    font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
-    color:var(--ink-faint);cursor:pointer;
-  }
-  .film-upload.on-film{color:rgba(255,255,255,0.8);}
-  .film-upload:hover{color:var(--ink);}
-  .film-upload.on-film:hover{color:#fff;}
-  .film-upload input{display:none;}
-
-  /* ============ MANIFESTO + FIXED MARK ============ */
-  .manifesto{
-    padding:clamp(6rem,14vh,10rem) var(--gutter) clamp(8rem,18vh,14rem);
-  }
-  .manifesto-inner{
-    max-width:44rem;
-    margin:0 auto;
-    text-align:center;
-  }
-  .manifesto-inner p{
-    font-size:clamp(0.9rem,1.15vw,1rem);
-    line-height:2;
-    color:var(--ink);
-    margin:0 0 2.6rem;
-  }
-  .manifesto-inner p:last-child{margin-bottom:0;}
-
-  /* each line becomes two clipped copies that slide apart */
-  .sline{
-    display:block;
-    position:relative;
-    width:100%;
-  }
-  .sline-half{
-    position:absolute;
-    left:0;right:0;top:0;
-    white-space:pre;
-    text-align:center;
-    will-change:transform;
-  }
-  .sline-half.l{clip-path:inset(0 50% 0 0);}
-  .sline-half.r{clip-path:inset(0 0 0 50%);}
-
-  .mark-fixed{
-    position:fixed;
-    top:4.6rem;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:40;
-    display:none;
-    pointer-events:none;
-  }
-  .mark-fixed.is-on{display:block;}
-  .mini-mark{
-    font-size:15px;
-    color:var(--blue);          /* switch to var(--ink) for a black mark */
-  }
-  .mini-mark .ring{border-width:0.085em;}
-
-  @media (prefers-reduced-motion:reduce){
-    .sline-half{transform:none !important;}
-  }
-  @media (max-width:760px){
-    .mark-fixed{top:3.6rem;}
-    .mini-mark{font-size:12px;}
-  }
-
-  /* ============ PORTFOLIO — scatter ============ */
-  .scatter{
-    position:relative;
-    width:100%;
-    aspect-ratio:1 / 1.15;
-  }
-  .scatter-tile{
-    position:absolute;
-    transform-origin:center center;
-    transition:transform .22s ease;
-  }
-  .scatter-tile:hover{ transform:scale(1.09); }
-  .scatter-tile.is-front{ border-color:transparent; }
-
-  .scatter-text{
-    position:absolute;
-    outline:none;
-    cursor:text;
-  }
-  .scatter-text.label{
-    font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-mid);
-  }
-  .scatter-text.note{
-    font-size:0.85rem;line-height:1.8;color:var(--ink-mid);
-  }
-  .scatter-text:focus{color:var(--ink);}
-
-  @media (prefers-reduced-motion:reduce){
-    .scatter-tile{transition:none;}
-    .scatter-tile:hover{transform:none;}
-  }
-
-  @media (max-width:760px){
-    .scatter{aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
-    .scatter-tile{
-      position:static !important;
-      left:auto !important;top:auto !important;
-      width:auto !important;
-      transform:none !important;
-    }
-    .scatter-text{
-      position:static !important;
-      left:auto !important;top:auto !important;
-      width:auto !important;
-      grid-column:1 / -1;
-      padding:0.6rem 0;
-    }
-  }
-
-  /* ============ JOURNAL ============ */
-  .journal-head{
-    display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,5vw,4rem);
-    align-items:start;
-    border-bottom:1px solid var(--rule);padding-bottom:2.4rem;margin-bottom:0;
-  }
-  .substack-embed-wrap iframe{
-    width:100%;height:150px;border:1px solid var(--rule-faint);background:var(--paper);
-  }
-  .post-list{display:flex;flex-direction:column;}
-  .post-row{
-    display:grid;grid-template-columns:8rem 1fr;gap:1.6rem;
-    padding:1.8rem 0;border-bottom:1px solid var(--rule-faint);
-  }
-  .post-row .date{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);padding-top:0.25rem;}
-  .post-row h3{
-    margin:0 0 0.6rem;font-size:0.95rem;font-weight:500;
-    letter-spacing:0.1em;text-transform:uppercase;line-height:1.5;
-  }
-  .post-row p{margin:0 0 0.7rem;color:var(--ink-mid);font-size:0.88rem;line-height:1.75;max-width:52ch;}
-  .post-row a.read{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:1px;}
-  @media (max-width:700px){
-    .journal-head{grid-template-columns:1fr;}
-    .post-row{grid-template-columns:1fr;}
-  }
-
-  /* ============ CV ============ */
-  .cv-shell{display:grid;grid-template-columns:12rem 1fr;gap:clamp(2rem,5vw,4.5rem);}
-  .cv-nav{list-style:none;margin:0;padding:0;position:sticky;top:5.5rem;align-self:start;}
-  .cv-nav li + li{margin-top:0.8rem;}
-  .cv-nav a{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-faint);}
-  .cv-nav a:hover{color:var(--ink);}
-  .cv-name{margin:0 0 0.6rem;}
-  .cv-role{
-    margin:0 0 3rem;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);
-  }
-  .cv-block{padding:2.4rem 0;border-top:1px solid var(--rule-faint);}
-  .cv-block:first-of-type{border-top:none;padding-top:0;}
-  .cv-block > h3{
-    font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
-    color:var(--ink-faint);margin:0 0 1.4rem;font-weight:400;
-  }
-  .cv-entry{display:grid;grid-template-columns:9rem 1fr;gap:1.4rem;margin-bottom:1.8rem;}
-  .cv-entry:last-child{margin-bottom:0;}
-  .cv-entry .when{font-size:0.72rem;letter-spacing:0.14em;color:var(--ink-faint);padding-top:0.2rem;}
-  .cv-entry .what h4{
-    margin:0 0 0.35rem;font-size:0.88rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
-  }
-  .cv-entry .what .org{font-size:0.82rem;color:var(--ink-mid);margin:0 0 0.6rem;}
-  .cv-entry .what p{margin:0;font-size:0.88rem;line-height:1.75;color:var(--ink-mid);max-width:52ch;}
-  .cv-skills{font-size:0.88rem;line-height:2;color:var(--ink-mid);outline:none;max-width:52ch;}
-  .cv-contact .row{margin:0 0 0.6rem;font-size:0.85rem;}
-  .cv-contact a{border-bottom:1px solid var(--rule);padding-bottom:1px;}
-  .cv-contact a:hover{border-color:var(--ink);}
-  @media (max-width:700px){
-    .cv-shell{grid-template-columns:1fr;}
-    .cv-nav{position:static;display:flex;gap:1.4rem;flex-wrap:wrap;margin-bottom:2.4rem;}
-    .cv-entry{grid-template-columns:1fr;gap:0.5rem;}
-  }
-
-  [contenteditable]:empty:before{content:attr(data-placeholder);color:var(--ink-faint);}
-
-  /* ============ FOOTER ============ */
-  footer{
-    margin-top:6rem;
-    padding:0 var(--gutter) 2rem;
-    border-top:1px solid var(--rule);
-  }
-  .crest{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:0.75rem;
-    padding:3.4rem 0 3rem;
-  }
-  .crest-dog{
-    width:88px;
-    height:51px;
-    color:var(--blue);
-  }
-  .crest-mark{
-    font-size:17px;
-    color:var(--ink);
-  }
-  .crest-mark .ring{border-width:0.08em;}
-  .footer-row{
-    display:flex;justify-content:space-between;align-items:baseline;
-    gap:1rem;flex-wrap:wrap;
-    border-top:1px solid var(--rule-faint);
-    padding-top:1.4rem;
-  }
-  footer .socials{display:flex;gap:1.6rem;}
-
-  .section-pad{padding-bottom:5rem;}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- dog mark, defined once and reused top and bottom -->
+<!-- perrito de barro: se define una vez y se reutiliza -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="dogmark" viewBox="0 0 260 150">
     <path fill="currentColor" d="M40 92 C28 78 18 62 16 46 C15 37 21 31 27 34 C32 37 30 45 32 54 C35 67 45 80 54 88 Z"/>
@@ -464,149 +33,203 @@
   </symbol>
 </svg>
 
-<!-- NAV -->
 <nav class="nav" id="siteNav">
   <a href="#top" class="nav-mark">
     <svg class="nav-dog" aria-hidden="true"><use href="#dogmark"/></svg>
-    <span>Ponchito</span>
+    <span>Marina Sandoval</span>
   </a>
-  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#look">Look</a></li>
-    <li><a href="#ponchito">Ponchito</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#trabajo">Trabajo</a></li>
     <li><a href="#journal">Journal</a></li>
-    <li><a href="#cv">CV</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="ponchito.html">Ponchito</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="upload-slot" data-upload="image">
-    <span class="upload-hint">Add cover image — the shirt</span>
+  <div class="slot" data-slot>
+    <span class="slot-hint">Agregar retrato</span>
     <input type="file" accept="image/*">
   </div>
   <div class="hero-foot">
-    <span class="meta">Autumn / Winter</span>
+    <span class="meta">Marina Sandoval — Diseño, operaciones y producción</span>
     <span class="meta meta-ink">Scroll</span>
   </div>
 </section>
 
-<!-- LOOK -->
-<section id="look" class="section-pad">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="meta">01 / Look</span>
-      <h2 class="display-md">Selected looks</h2>
-      <p class="lede" contenteditable="true" data-placeholder="A short line about this season, or what ties these looks together.">A short line about this season, or what ties these looks together.</p>
-    </div>
-
-    <div class="look-list">
-      <div class="look-row">
-        <div class="upload-slot look-photo is-tall" data-upload="image"><span class="upload-hint">Add photo</span><input type="file" accept="image/*"></div>
-        <div class="upload-slot look-photo" data-upload="image"><span class="upload-hint">Add photo</span><input type="file" accept="image/*"></div>
-        <div class="look-caption">
-          <span class="meta">Look 01</span>
-          <span class="cap-text" contenteditable="true" data-placeholder="Describe the piece — fabric, cut, or the story behind it.">Describe the piece — fabric, cut, or the story behind it.</span>
-        </div>
-      </div>
-
-      <div class="look-row">
-        <div class="upload-slot look-photo" data-upload="image"><span class="upload-hint">Add photo</span><input type="file" accept="image/*"></div>
-        <div class="upload-slot look-photo is-tall" data-upload="image"><span class="upload-hint">Add photo</span><input type="file" accept="image/*"></div>
-        <div class="look-caption">
-          <span class="meta">Look 02</span>
-          <span class="cap-text" contenteditable="true" data-placeholder="Describe the piece — fabric, cut, or the story behind it.">Describe the piece — fabric, cut, or the story behind it.</span>
-        </div>
-      </div>
-
-      <div class="look-row">
-        <div class="upload-slot look-photo is-tall" data-upload="image"><span class="upload-hint">Add photo</span><input type="file" accept="image/*"></div>
-        <div class="upload-slot look-photo" data-upload="image"><span class="upload-hint">Add photo</span><input type="file" accept="image/*"></div>
-        <div class="look-caption">
-          <span class="meta">Look 03</span>
-          <span class="cap-text" contenteditable="true" data-placeholder="Describe the piece — fabric, cut, or the story behind it.">Describe the piece — fabric, cut, or the story behind it.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PONCHITO -->
-<section id="ponchito">
-  <div class="film"><video id="brandVideo" muted loop playsinline></video></div>
-
-  <div class="brand-mark" id="brandMark" aria-label="Ponchito">
-    <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
-  </div>
-  <div class="brand-tagline" id="brandTagline">
-    <p contenteditable="true" data-placeholder="A one-line tagline">A one-line tagline</p>
-  </div>
-
-  <label class="film-upload" id="filmUpload">
-    Set background film
-    <input type="file" accept="video/*" id="videoInput">
-  </label>
-</section>
-
-<!-- MANIFESTO — fixed mark, lines part around it on scroll -->
-<section class="manifesto" id="manifesto">
-  <div class="manifesto-inner" id="manifestoText">
-    <p>Ponchito surge de una necedad instintiva: hacer ropa que aguante el uso diario y mejore con él.</p>
-    <p>Nacida en Ciudad de México. Cada pieza empieza en papel, se corta a mano y se prueba antes de existir en cantidad. No hay temporadas, hay tandas.</p>
-    <p>Trabajamos con lo que ya está aquí — telas de deadstock, talleres locales, patrones que se reusan hasta que dejan de servir.</p>
-    <p>Lo que se vende se hizo. Lo que se hizo se usa.</p>
+<!-- INTRO: las líneas se abren alrededor del perrito -->
+<section class="manifesto" id="intro">
+  <div class="manifesto-inner" id="introText">
+    <p>Marina Sandoval, diseñadora de modas. Nací en Ciudad de México en 2003 y trabajo desde aquí.</p>
+    <p>Tengo experiencia internacional en sostenibilidad, calzado y operaciones de lujo. Hoy llevo las operaciones de xto. by xto. y en septiembre presento mi tercera colección propia en Milan Fashion Week.</p>
+    <p>He diseñado para estudios y marcas en Monterrey, Barcelona y Ciudad de México: calzado, workwear, colecciones cápsula y proyectos de residuo cero.</p>
   </div>
 </section>
 
 <div class="mark-fixed" id="markFixed" aria-hidden="true">
-  <span class="brand-mark mini-mark">
-    <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
-  </span>
+  <svg class="mark-dog"><use href="#dogmark"/></svg>
 </div>
 
-<!-- PORTFOLIO -->
-<section id="portfolio" class="section-pad">
+<!-- TRABAJO -->
+<section id="trabajo" class="section-pad">
   <div class="wrap">
     <div class="section-head">
-      <span class="meta">02 / Portfolio</span>
-      <h2 class="display-md">Archive</h2>
-      <p class="lede" contenteditable="true" data-placeholder="A line about the work shown below — process, materials, or intent.">A line about the work shown below — process, materials, or intent.</p>
+      <span class="meta">01 / Trabajo</span>
+      <h2 class="display-md">Experiencia</h2>
     </div>
 
-    <!-- Positions are set inline (left / top / width / aspect-ratio) so they're
-         easy to nudge. Everything is a % of the container, so it scales. -->
-    <div class="scatter">
+    <ol class="work-list">
 
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:22%;top:3%;width:12%;aspect-ratio:3/4;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:30%;top:1%;width:11%;aspect-ratio:1/1;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:37%;top:5%;width:13%;aspect-ratio:4/3;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:46%;top:0%;width:15%;aspect-ratio:3/2;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:26%;top:9%;width:12%;aspect-ratio:1/1;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:12%;top:12%;width:13%;aspect-ratio:3/4;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:2%;top:19%;width:15%;aspect-ratio:4/3;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:13%;top:25%;width:11%;aspect-ratio:4/3;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:20%;top:24%;width:13%;aspect-ratio:1/1;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:29%;top:27%;width:23%;aspect-ratio:3/4.6;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:14%;top:34%;width:10%;aspect-ratio:4/3;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:45%;top:37%;width:16%;aspect-ratio:3/4;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:60%;top:39%;width:34%;aspect-ratio:3/4;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:30%;top:66%;width:17%;aspect-ratio:4/3;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:18%;top:68%;width:19%;aspect-ratio:3/4;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:10%;top:74%;width:15%;aspect-ratio:1/1;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="upload-slot scatter-tile" data-upload="image" style="left:2%;top:79%;width:17%;aspect-ratio:4/3;"><span class="upload-hint">+</span><input type="file" accept="image/*"></div>
+      <li class="work-item">
+        <span class="work-num"></span>
+        <span class="work-when">Sep 2026</span>
+        <div>
+          <h3 class="work-org">Milan Fashion Week <span class="ctx">· SS27</span></h3>
+          <p class="work-role">Colección propia presentada en pasarela</p>
+          <div class="work-stats">
+            <div><span class="n">03</span><span class="l">colección propia</span></div>
+            <div><span class="n">SS27</span><span class="l">temporada</span></div>
+          </div>
+          <p class="work-note">Primera colección propia presentada fuera de México.</p>
+        </div>
+      </li>
 
-      <!-- floating text — click to edit -->
-      <span class="scatter-text label" contenteditable="true" style="left:2%;top:2%;"  data-placeholder="People">People</span>
-      <span class="scatter-text label" contenteditable="true" style="left:8%;top:6%;"  data-placeholder="Portraits">Portraits</span>
-      <span class="scatter-text label" contenteditable="true" style="left:63%;top:12%;" data-placeholder="Nature">Nature</span>
-      <span class="scatter-text label" contenteditable="true" style="left:56%;top:20%;" data-placeholder="Objects">Objects</span>
-      <span class="scatter-text label" contenteditable="true" style="left:66%;top:28%;" data-placeholder="Commercial">Commercial</span>
-      <span class="scatter-text label" contenteditable="true" style="left:5%;top:62%;"  data-placeholder="B&amp;W">B&amp;W</span>
+      <li class="work-item">
+        <span class="work-num"></span>
+        <span class="work-when">Ene 2026 —</span>
+        <div>
+          <h3 class="work-org">xto. by xto.</h3>
+          <p class="work-role">Operations Manager</p>
+          <p class="work-note">Control de calidad, gestión de la tienda en línea en Shopify, y estrategia de ventas y crecimiento.</p>
+        </div>
+      </li>
 
-      <p class="scatter-text note" contenteditable="true" style="left:2%;top:46%;width:20%;margin:0;" data-placeholder="A note about this body of work — when it was made, what it was for.">A note about this body of work — when it was made, what it was for.</p>
-      <p class="scatter-text note" contenteditable="true" style="left:62%;top:82%;width:30%;margin:0;" data-placeholder="A second note — a credit, a material, or a line about the process.">A second note — a credit, a material, or a line about the process.</p>
+      <li class="work-item">
+        <span class="work-num"></span>
+        <span class="work-when">2026</span>
+        <div>
+          <h3 class="work-org">R.O.M.A Studio <span class="ctx">· Monterrey</span></h3>
+          <p class="work-role">Consultoría de diseño</p>
+          <p class="work-note">Diseño y producción de workwear para estudio y showroom, que además se lanzó como producto.</p>
+        </div>
+      </li>
 
+      <li class="work-item">
+        <span class="work-num"></span>
+        <span class="work-when">2025</span>
+        <div>
+          <h3 class="work-org">Tropicfeel <span class="ctx">· Barcelona</span></h3>
+          <p class="work-role">Consultoría de diseño</p>
+          <p class="work-note">Diseño de la primera sandalia de Tropicfeel, inspirada en la cultura corredora tarahumara, ampliando su repertorio de calzado.</p>
+        </div>
+      </li>
+
+      <li class="work-item">
+        <span class="work-num"></span>
+        <span class="work-when">2024</span>
+        <div>
+          <h3 class="work-org">Agnes Workshop <span class="ctx">· Ciudad de México</span></h3>
+          <p class="work-role">Consultoría de diseño</p>
+          <p class="work-note">Colección de residuo cero a partir de prendas de trabajo mexicanas y japonesas como referencia de moda funcional. Terminó en colaboración y lanzamiento de producto.</p>
+        </div>
+      </li>
+
+      <li class="work-item">
+        <span class="work-num"></span>
+        <span class="work-when">2024</span>
+        <div>
+          <h3 class="work-org">Esånt <span class="ctx">· Monterrey</span></h3>
+          <p class="work-role">Consultoría de diseño</p>
+          <p class="work-note">Colección cápsula centrada en dirección de material y producto, explorando siluetas inspiradas en la mujer Esånt.</p>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<!-- EDUCACIÓN -->
+<section id="educacion" class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="meta">02 / Educación</span>
+    </div>
+    <ol class="work-list">
+      <li class="work-item">
+        <span class="work-num"></span>
+        <span class="work-when">2023 — 2027</span>
+        <div>
+          <h3 class="work-org">CEDIM</h3>
+          <p class="work-role">Diseño y Negocios de la Moda</p>
+          <p class="work-note">Incluye la certificación Global Fashion Leadership and Transdisciplinary Design (2026–2027).</p>
+        </div>
+      </li>
+      <li class="work-item">
+        <span class="work-num"></span>
+        <span class="work-when">Sep 2025</span>
+        <div>
+          <h3 class="work-org">ESDi <span class="ctx">· Barcelona</span></h3>
+          <p class="work-role">Diseño de producto y sostenibilidad</p>
+          <p class="work-note">Aplicado a la industria europea: trazabilidad de materiales, normativa y circularidad.</p>
+        </div>
+      </li>
+      <li class="work-item">
+        <span class="work-num"></span>
+        <span class="work-when">2023</span>
+        <div>
+          <h3 class="work-org">Centro</h3>
+          <p class="work-role">Diploma en Fashion Business</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades" class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="meta">03 / Habilidades</span>
+    </div>
+
+    <div class="cols">
+      <div>
+        <h3>Habilidades</h3>
+        <ul>
+          <li>Gestión de producción y control de calidad</li>
+          <li>Operaciones de e-commerce (Shopify)</li>
+          <li>Estrategia de crecimiento basada en datos</li>
+          <li>Diseño circular y economía circular</li>
+          <li>Brand auditing</li>
+          <li>Edición de fotografía y video</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Herramientas</h3>
+        <ul>
+          <li>Clo3D</li>
+          <li>Shopify</li>
+          <li>WGSN</li>
+          <li>Illustrator</li>
+          <li>Photoshop</li>
+          <li>InDesign</li>
+          <li>Lightroom</li>
+          <li>Substack</li>
+          <li>WordPress</li>
+          <li>Excel</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Idiomas</h3>
+        <ul>
+          <li class="lang"><span>Español</span><span class="lvl">nativo</span></li>
+          <li class="lang"><span>Inglés</span><span class="lvl">C1 · IELTS</span></li>
+          <li class="lang"><span>Catalán</span><span class="lvl">fluido</span></li>
+          <li class="lang"><span>Alemán</span><span class="lvl">B1</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -615,15 +238,15 @@
 <section id="journal" class="section-pad">
   <div class="wrap">
     <div class="section-head">
-      <span class="meta">03 / Journal</span>
-      <h2 class="display-md">Notes, elsewhere</h2>
+      <span class="meta">04 / Journal</span>
+      <h2 class="display-md">Escribo en Substack</h2>
     </div>
 
     <div class="journal-head">
-      <p class="lede" contenteditable="true" data-placeholder="A line about what the journal covers.">A line about what the journal covers.</p>
+      <p class="lede">Notas sobre moda, marcas y lo que voy leyendo. Publico en marsandovv.</p>
       <div class="substack-embed-wrap">
-        <p class="meta" style="margin:0 0 0.7rem;">Subscribe</p>
-        <iframe frameborder="0" scrolling="no" title="Substack subscribe form"></iframe>
+        <p class="meta" style="margin:0 0 0.7rem;">Suscríbete</p>
+        <iframe src="https://marsandovv.substack.com/embed" frameborder="0" scrolling="no" title="Suscripción a Substack"></iframe>
       </div>
     </div>
 
@@ -631,73 +254,19 @@
   </div>
 </section>
 
-<!-- CV -->
-<section id="cv" class="section-pad">
+<!-- CONTACTO -->
+<section id="contacto" class="section-pad">
   <div class="wrap">
     <div class="section-head">
-      <span class="meta">04 / CV</span>
+      <span class="meta">05 / Contacto</span>
     </div>
-
-    <div class="cv-shell">
-      <ul class="cv-nav">
-        <li><a href="#cv-about">About</a></li>
-        <li><a href="#cv-experience">Experience</a></li>
-        <li><a href="#cv-education">Education</a></li>
-        <li><a href="#cv-skills">Skills</a></li>
-        <li><a href="#cv-contact">Contact</a></li>
-      </ul>
-
-      <div>
-        <h2 class="display-md cv-name" contenteditable="true" data-placeholder="Your Name">Your Name</h2>
-        <p class="cv-role" contenteditable="true" data-placeholder="Designer — founder of Ponchito">Designer — founder of Ponchito</p>
-
-        <div class="cv-block" id="cv-about">
-          <h3>About</h3>
-          <p class="body-copy" contenteditable="true" data-placeholder="A short paragraph about who you are, what you make, and how you work.">A short paragraph about who you are, what you make, and how you work.</p>
-        </div>
-
-        <div class="cv-block" id="cv-experience">
-          <h3>Experience</h3>
-          <div class="cv-entry">
-            <div class="when" contenteditable="true" data-placeholder="2023 — Present">2023 — Present</div>
-            <div class="what">
-              <h4 contenteditable="true" data-placeholder="Founder">Founder</h4>
-              <p class="org" contenteditable="true" data-placeholder="Ponchito">Ponchito</p>
-              <p contenteditable="true" data-placeholder="What you built and what you're responsible for.">What you built and what you're responsible for.</p>
-            </div>
-          </div>
-          <div class="cv-entry">
-            <div class="when" contenteditable="true" data-placeholder="2021 — 2023">2021 — 2023</div>
-            <div class="what">
-              <h4 contenteditable="true" data-placeholder="Role">Role</h4>
-              <p class="org" contenteditable="true" data-placeholder="Company">Company</p>
-              <p contenteditable="true" data-placeholder="What you did there.">What you did there.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cv-block" id="cv-education">
-          <h3>Education</h3>
-          <div class="cv-entry">
-            <div class="when" contenteditable="true" data-placeholder="20XX — 20XX">20XX — 20XX</div>
-            <div class="what">
-              <h4 contenteditable="true" data-placeholder="Degree">Degree</h4>
-              <p class="org" contenteditable="true" data-placeholder="School">School</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="cv-block" id="cv-skills">
-          <h3>Skills</h3>
-          <p class="cv-skills" contenteditable="true" data-placeholder="Pattern making, textile sourcing, brand direction">Pattern making, textile sourcing, brand direction</p>
-        </div>
-
-        <div class="cv-block cv-contact" id="cv-contact">
-          <h3>Contact</h3>
-          <p class="row"><a href="mailto:hello@ponchito.casa">hello@ponchito.casa</a></p>
-          <p class="row"><a href="#" target="_blank" rel="noopener">Instagram</a></p>
-        </div>
-      </div>
+    <div class="contact-rows">
+      <div class="row"><span class="k">Correo</span><a href="mailto:marsandovv@gmail.com">marsandovv@gmail.com</a></div>
+      <div class="row"><span class="k">Teléfono</span><a href="tel:+525549362164">+52 55 4936 2164</a></div>
+      <div class="row"><span class="k">Instagram</span><a href="https://instagram.com/m._harina" target="_blank" rel="noopener">@m._harina</a></div>
+      <div class="row"><span class="k">Substack</span><a href="https://marsandovv.substack.com" target="_blank" rel="noopener">marsandovv</a></div>
+      <div class="row"><span class="k">Marca</span><a href="ponchito.html">Ponchito</a></div>
+      <div class="row"><span class="k">Ciudad</span><span>Ciudad de México</span></div>
     </div>
   </div>
 </section>
@@ -705,33 +274,26 @@
 <footer>
   <div class="crest">
     <svg class="crest-dog" aria-hidden="true"><use href="#dogmark"/></svg>
-    <span class="brand-mark crest-mark" aria-label="Ponchito">
-      <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
-    </span>
+    <span class="crest-name">Marina Sandoval</span>
     <span class="meta">Ciudad de México</span>
   </div>
   <div class="footer-row">
-    <span class="meta meta-ink">© <span id="year"></span> Ponchito</span>
+    <span class="meta meta-ink">© <span id="year"></span> Marina Sandoval</span>
     <span class="socials meta meta-ink">
-      <a href="#">Instagram</a>
-      <a href="mailto:hello@ponchito.casa">Email</a>
+      <a href="https://instagram.com/m._harina" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:marsandovv@gmail.com">Correo</a>
+      <a href="ponchito.html">Ponchito</a>
     </span>
   </div>
 </footer>
 
 <script>
-  // ---------- EDIT: your Substack handle (no .substack.com) ----------
-  const SUBSTACK_HANDLE = "YOURSUBSTACK";
-
-  // ---------- EDIT: your posts ----------
+  /* ---------- EDITA AQUÍ: tus posts ---------- */
   const POSTS = [
-    { date: "Sep 2026", title: "Post title one",   blurb: "A short line describing what this post is about.", link: "https://" + SUBSTACK_HANDLE + ".substack.com" },
-    { date: "Aug 2026", title: "Post title two",   blurb: "A short line describing what this post is about.", link: "https://" + SUBSTACK_HANDLE + ".substack.com" },
-    { date: "Jul 2026", title: "Post title three", blurb: "A short line describing what this post is about.", link: "https://" + SUBSTACK_HANDLE + ".substack.com" }
+    { date: "Sep 2026", title: "Título del post", blurb: "Una línea sobre de qué trata.", link: "https://marsandovv.substack.com" },
+    { date: "Ago 2026", title: "Título del post", blurb: "Una línea sobre de qué trata.", link: "https://marsandovv.substack.com" },
+    { date: "Jul 2026", title: "Título del post", blurb: "Una línea sobre de qué trata.", link: "https://marsandovv.substack.com" }
   ];
-
-  document.querySelector(".substack-embed-wrap iframe").src =
-    "https://" + SUBSTACK_HANDLE + ".substack.com/embed";
 
   const postList = document.getElementById("postList");
   POSTS.forEach(p => {
@@ -740,26 +302,26 @@
     row.innerHTML =
       '<span class="date">' + p.date + '</span>' +
       '<div><h3>' + p.title + '</h3><p>' + p.blurb + '</p>' +
-      '<a class="read" href="' + p.link + '" target="_blank" rel="noopener">Read on Substack</a></div>';
+      '<a class="read" href="' + p.link + '" target="_blank" rel="noopener">Leer en Substack</a></div>';
     postList.appendChild(row);
   });
 
-  // ---------- mobile menu ----------
+  /* ---------- menú móvil ---------- */
   const navToggle = document.getElementById("navToggle");
   const navLinks = document.getElementById("navLinks");
   navToggle.addEventListener("click", () => {
     const open = navLinks.classList.toggle("is-open");
     navToggle.setAttribute("aria-expanded", open);
-    navToggle.textContent = open ? "Close" : "Menu";
+    navToggle.textContent = open ? "Cerrar" : "Menú";
   });
   navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
     navLinks.classList.remove("is-open");
     navToggle.setAttribute("aria-expanded", "false");
-    navToggle.textContent = "Menu";
+    navToggle.textContent = "Menú";
   }));
 
-  // ---------- image upload (preview only) ----------
-  document.querySelectorAll(".upload-slot[data-upload='image']").forEach(slot => {
+  /* ---------- foto del hero (vista previa; se reemplaza por archivo real) ---------- */
+  document.querySelectorAll(".slot[data-slot]").forEach(slot => {
     const input = slot.querySelector("input[type=file]");
     slot.addEventListener("click", e => { if (e.target !== input) input.click(); });
     input.addEventListener("change", () => {
@@ -774,24 +336,19 @@
     });
   });
 
-  // ---------- manifesto: lines part around the fixed mark ----------
-  // Each rendered line is measured, then rebuilt as two overlaid copies:
-  // one clipped to its left half, one to its right. Sliding them apart
-  // opens a gap at the centre — which is why the split lands mid-word.
-  (function manifesto(){
-    const box  = document.getElementById("manifestoText");
+  /* ---------- intro: las líneas se abren alrededor del perrito ---------- */
+  (function intro(){
+    const box  = document.getElementById("introText");
     const mark = document.getElementById("markFixed");
     if (!box || !mark) return;
 
-    const MAX_SHIFT = 70;   // px each half travels at full strength
-    const RADIUS    = 150;  // px above/below the mark that still parts
+    const MAX_SHIFT = 48;
+    const RADIUS    = 150;
 
     const sources = Array.from(box.querySelectorAll("p"));
     sources.forEach(p => { if (!p.dataset.text) p.dataset.text = p.textContent; });
+    let lines = [], sectionTop = 0, sectionBottom = 0, ticking = false;
 
-    let lines = [];
-
-    // find where the browser broke each paragraph, then rebuild it
     function build(){
       lines = [];
       sources.forEach(p => {
@@ -805,16 +362,14 @@
         const breaks = [];
         let lastTop = null;
         for (let i = 1; i <= text.length; i++){
-          range.setStart(node, i - 1);
-          range.setEnd(node, i);
+          range.setStart(node, i - 1); range.setEnd(node, i);
           const r = range.getBoundingClientRect();
           if (!r.height) continue;
           if (lastTop === null) lastTop = r.top;
           else if (Math.abs(r.top - lastTop) > 1){ breaks.push(i - 1); lastTop = r.top; }
         }
 
-        const parts = [];
-        let from = 0;
+        const parts = []; let from = 0;
         breaks.forEach(b => { parts.push(text.slice(from, b)); from = b; });
         parts.push(text.slice(from));
 
@@ -822,32 +377,24 @@
         parts.forEach(str => {
           const clean = str.trim();
           if (!clean) return;
-          const line  = document.createElement("span");
-          line.className = "sline";
-          const left  = document.createElement("span");
-          const right = document.createElement("span");
-          left.className  = "sline-half l";
-          right.className = "sline-half r";
+          const line = document.createElement("span"); line.className = "sline";
+          const left = document.createElement("span"); left.className = "sline-half l";
+          const right = document.createElement("span"); right.className = "sline-half r";
           left.textContent = right.textContent = clean;
           line.style.height = lh + "px";
-          line.appendChild(left);
-          line.appendChild(right);
+          line.appendChild(left); line.appendChild(right);
           p.appendChild(line);
           lines.push({ line, left, right });
         });
       });
-
       measure();
     }
 
-    // section bounds, for showing/hiding the mark
     function measure(){
-      const s = document.getElementById("manifesto").getBoundingClientRect();
+      const s = document.getElementById("intro").getBoundingClientRect();
       sectionTop = s.top + window.scrollY;
       sectionBottom = sectionTop + s.height;
     }
-
-    let sectionTop = 0, sectionBottom = 0, ticking = false;
 
     function update(){
       const y = window.scrollY;
@@ -855,15 +402,13 @@
       mark.classList.toggle("is-on", onScreen);
       if (!onScreen){ ticking = false; return; }
 
-      // everything measured against the viewport, so nothing goes stale
       const mr = mark.getBoundingClientRect();
       const markMid = mr.top + mr.height / 2;
-
       lines.forEach(o => {
         const r = o.line.getBoundingClientRect();
         const dist = Math.abs(r.top + r.height / 2 - markMid);
         const k = Math.max(0, 1 - dist / RADIUS);
-        const d = MAX_SHIFT * k * k * (3 - 2 * k); // ease the falloff
+        const d = MAX_SHIFT * k * k * (3 - 2 * k);
         o.left.style.transform  = "translate3d(" + (-d) + "px,0,0)";
         o.right.style.transform = "translate3d(" + d + "px,0,0)";
       });
@@ -883,44 +428,6 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
     else build();
   })();
-
-  // ---------- scatter stacking ----------
-  // Base order = document order. Hover floats a tile temporarily,
-  // clicking pins it to the front for good.
-  const tiles = Array.from(document.querySelectorAll(".scatter-tile"));
-  let topZ = tiles.length;
-
-  tiles.forEach((tile, i) => {
-    tile.style.zIndex = i + 1;
-
-    tile.addEventListener("mouseenter", () => {
-      tile.dataset.restZ = tile.style.zIndex;
-      tile.style.zIndex = 9000;
-    });
-    tile.addEventListener("mouseleave", () => {
-      if (tile.dataset.restZ) tile.style.zIndex = tile.dataset.restZ;
-    });
-
-    // click brings to front — recorded so it survives mouseleave
-    tile.addEventListener("click", () => {
-      topZ += 1;
-      tile.dataset.restZ = topZ;
-    });
-  });
-
-  // ---------- video upload (preview only) ----------
-  const brandVideo = document.getElementById("brandVideo");
-  const videoInput = document.getElementById("videoInput");
-  videoInput.addEventListener("change", () => {
-    const file = videoInput.files[0];
-    if (!file) return;
-    brandVideo.src = URL.createObjectURL(file);
-    brandVideo.play().catch(() => {});
-    // flip logo + labels to white once a film is behind them
-    document.getElementById("brandMark").classList.add("on-film");
-    document.getElementById("brandTagline").classList.add("on-film");
-    document.getElementById("filmUpload").classList.add("on-film");
-  });
 
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ponchito</title>
+<meta name="description" content="Ponchito — ropa hecha en Ciudad de México.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav" id="siteNav">
+  <a href="#top" class="nav-mark">
+    <span class="brand-mark" style="font-size:13px;" aria-label="Ponchito">
+      <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
+    </span>
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#looks">Looks</a></li>
+    <li><a href="#archive">Archivo</a></li>
+    <li><a href="#tienda">Contacto</a></li>
+    <li><a href="index.html">Marina Sandoval</a></li>
+  </ul>
+</nav>
+
+<!-- VIDEO + LOGO -->
+<section class="film-hero" id="top">
+  <div class="film"><video id="brandVideo" muted loop playsinline></video></div>
+
+  <div class="brand-mark" id="brandMark" aria-label="Ponchito">
+    <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
+  </div>
+  <div class="brand-tagline" id="brandTagline">
+    <p>Hecho en Ciudad de México</p>
+  </div>
+
+  <label class="film-upload" id="filmUpload">
+    Poner video de fondo
+    <input type="file" accept="video/*" id="videoInput">
+  </label>
+</section>
+
+<!-- MANIFIESTO -->
+<section class="manifesto" id="manifesto">
+  <div class="manifesto-inner" id="manifestoText">
+    <p>Ponchito surge de una necedad instintiva: hacer ropa que aguante el uso diario y mejore con él.</p>
+    <p>Nacida en Ciudad de México. Cada pieza empieza en papel, se corta a mano y se prueba antes de existir en cantidad. No hay temporadas, hay tandas.</p>
+    <p>Trabajamos con lo que ya está aquí — telas de deadstock, talleres locales, patrones que se reusan hasta que dejan de servir.</p>
+    <p>Lo que se vende se hizo. Lo que se hizo se usa.</p>
+  </div>
+</section>
+
+<div class="mark-fixed" id="markFixed" aria-hidden="true">
+  <span class="brand-mark mini-mark">
+    <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
+  </span>
+</div>
+
+<!-- LOOKS -->
+<section id="looks" class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="meta">01 / Looks</span>
+      <h2 class="display-md">Tanda actual</h2>
+    </div>
+
+    <div class="look-list" id="look">
+      <div class="look-row">
+        <div class="slot look-photo is-tall" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
+        <div class="slot look-photo" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
+        <div class="look-caption">
+          <span class="meta">Look 01</span>
+          <span class="cap-text">Describe la pieza — tela, corte, o de dónde salió.</span>
+        </div>
+      </div>
+      <div class="look-row">
+        <div class="slot look-photo" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
+        <div class="slot look-photo is-tall" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
+        <div class="look-caption">
+          <span class="meta">Look 02</span>
+          <span class="cap-text">Describe la pieza — tela, corte, o de dónde salió.</span>
+        </div>
+      </div>
+      <div class="look-row">
+        <div class="slot look-photo is-tall" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
+        <div class="slot look-photo" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
+        <div class="look-caption">
+          <span class="meta">Look 03</span>
+          <span class="cap-text">Describe la pieza — tela, corte, o de dónde salió.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHIVO -->
+<section id="archive" class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="meta">02 / Archivo</span>
+      <h2 class="display-md">Archivo</h2>
+    </div>
+
+    <!-- posiciones en % — se pueden mover cambiando left/top/width -->
+    <div class="scatter">
+      <div class="slot scatter-tile" data-slot style="left:22%;top:3%;width:12%;aspect-ratio:3/4;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:30%;top:1%;width:11%;aspect-ratio:1/1;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:37%;top:5%;width:13%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:46%;top:0%;width:15%;aspect-ratio:3/2;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:26%;top:9%;width:12%;aspect-ratio:1/1;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:12%;top:12%;width:13%;aspect-ratio:3/4;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:2%;top:19%;width:15%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:13%;top:25%;width:11%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:20%;top:24%;width:13%;aspect-ratio:1/1;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:29%;top:27%;width:23%;aspect-ratio:3/4.6;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:14%;top:34%;width:10%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:45%;top:37%;width:16%;aspect-ratio:3/4;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:60%;top:39%;width:34%;aspect-ratio:3/4;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:30%;top:66%;width:17%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:18%;top:68%;width:19%;aspect-ratio:3/4;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:10%;top:74%;width:15%;aspect-ratio:1/1;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile" data-slot style="left:2%;top:79%;width:17%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+
+      <span class="scatter-text label" style="left:2%;top:2%;">Tanda 01</span>
+      <span class="scatter-text label" style="left:8%;top:6%;">Muestras</span>
+      <span class="scatter-text label" style="left:63%;top:12%;">Telas</span>
+      <span class="scatter-text label" style="left:56%;top:20%;">Taller</span>
+      <span class="scatter-text label" style="left:66%;top:28%;">Patrones</span>
+      <span class="scatter-text label" style="left:5%;top:62%;">Proceso</span>
+
+      <p class="scatter-text note" style="left:2%;top:46%;width:20%;margin:0;">Una nota sobre este archivo — cuándo se hizo, para qué era.</p>
+      <p class="scatter-text note" style="left:62%;top:82%;width:30%;margin:0;">Una segunda nota — un crédito, un material, o algo del proceso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="tienda" class="section-pad">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="meta">03 / Contacto</span>
+    </div>
+    <div class="contact-rows">
+      <div class="row"><span class="k">Instagram</span><a href="https://instagram.com/ponchito_______" target="_blank" rel="noopener">@ponchito_______</a></div>
+      <div class="row"><span class="k">Correo</span><a href="mailto:marsandovv@gmail.com">marsandovv@gmail.com</a></div>
+      <div class="row"><span class="k">Diseño</span><a href="index.html">Marina Sandoval</a></div>
+      <div class="row"><span class="k">Taller</span><span>Ciudad de México</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="crest">
+    <span class="brand-mark crest-mark" aria-label="Ponchito">
+      <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
+    </span>
+    <span class="meta">Ciudad de México</span>
+  </div>
+  <div class="footer-row">
+    <span class="meta meta-ink">© <span id="year"></span> Ponchito</span>
+    <span class="socials meta meta-ink">
+      <a href="https://instagram.com/ponchito_______" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:marsandovv@gmail.com">Correo</a>
+      <a href="index.html">Marina Sandoval</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  /* ---------- menú móvil ---------- */
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
+  navToggle.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", open);
+    navToggle.textContent = open ? "Cerrar" : "Menú";
+  });
+  navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    navLinks.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.textContent = "Menú";
+  }));
+
+  /* ---------- fotos (vista previa) ---------- */
+  document.querySelectorAll(".slot[data-slot]").forEach(slot => {
+    const input = slot.querySelector("input[type=file]");
+    slot.addEventListener("click", e => { if (e.target !== input) input.click(); });
+    input.addEventListener("change", () => {
+      const file = input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        slot.style.backgroundImage = "url(" + reader.result + ")";
+        slot.classList.add("has-image");
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+
+  /* ---------- video de fondo ---------- */
+  const brandVideo = document.getElementById("brandVideo");
+  const videoInput = document.getElementById("videoInput");
+  videoInput.addEventListener("change", () => {
+    const file = videoInput.files[0];
+    if (!file) return;
+    brandVideo.src = URL.createObjectURL(file);
+    brandVideo.play().catch(() => {});
+    document.getElementById("brandMark").classList.add("on-film");
+    document.getElementById("brandTagline").classList.add("on-film");
+    document.getElementById("filmUpload").classList.add("on-film");
+  });
+
+  /* ---------- archivo: hover agranda, clic trae al frente ---------- */
+  const tiles = Array.from(document.querySelectorAll(".scatter-tile"));
+  let topZ = tiles.length;
+  tiles.forEach((tile, i) => {
+    tile.style.zIndex = i + 1;
+    tile.addEventListener("mouseenter", () => {
+      tile.dataset.restZ = tile.style.zIndex;
+      tile.style.zIndex = 9000;
+    });
+    tile.addEventListener("mouseleave", () => {
+      if (tile.dataset.restZ) tile.style.zIndex = tile.dataset.restZ;
+    });
+    tile.addEventListener("click", () => { topZ += 1; tile.dataset.restZ = topZ; });
+  });
+
+  /* ---------- manifiesto: las líneas se abren alrededor del logo ---------- */
+  (function manifesto(){
+    const box  = document.getElementById("manifestoText");
+    const mark = document.getElementById("markFixed");
+    if (!box || !mark) return;
+
+    const MAX_SHIFT = 70;
+    const RADIUS    = 150;
+
+    const sources = Array.from(box.querySelectorAll("p"));
+    sources.forEach(p => { if (!p.dataset.text) p.dataset.text = p.textContent; });
+    let lines = [], sectionTop = 0, sectionBottom = 0, ticking = false;
+
+    function build(){
+      lines = [];
+      sources.forEach(p => {
+        const text = p.dataset.text;
+        p.textContent = text;
+        const lh = parseFloat(getComputedStyle(p).lineHeight);
+        const node = p.firstChild;
+        if (!node) return;
+
+        const range = document.createRange();
+        const breaks = [];
+        let lastTop = null;
+        for (let i = 1; i <= text.length; i++){
+          range.setStart(node, i - 1); range.setEnd(node, i);
+          const r = range.getBoundingClientRect();
+          if (!r.height) continue;
+          if (lastTop === null) lastTop = r.top;
+          else if (Math.abs(r.top - lastTop) > 1){ breaks.push(i - 1); lastTop = r.top; }
+        }
+
+        const parts = []; let from = 0;
+        breaks.forEach(b => { parts.push(text.slice(from, b)); from = b; });
+        parts.push(text.slice(from));
+
+        p.textContent = "";
+        parts.forEach(str => {
+          const clean = str.trim();
+          if (!clean) return;
+          const line = document.createElement("span"); line.className = "sline";
+          const left = document.createElement("span"); left.className = "sline-half l";
+          const right = document.createElement("span"); right.className = "sline-half r";
+          left.textContent = right.textContent = clean;
+          line.style.height = lh + "px";
+          line.appendChild(left); line.appendChild(right);
+          p.appendChild(line);
+          lines.push({ line, left, right });
+        });
+      });
+      measure();
+    }
+
+    function measure(){
+      const s = document.getElementById("manifesto").getBoundingClientRect();
+      sectionTop = s.top + window.scrollY;
+      sectionBottom = sectionTop + s.height;
+    }
+
+    function update(){
+      const y = window.scrollY;
+      const onScreen = sectionBottom > y && sectionTop < y + window.innerHeight;
+      mark.classList.toggle("is-on", onScreen);
+      if (!onScreen){ ticking = false; return; }
+
+      const mr = mark.getBoundingClientRect();
+      const markMid = mr.top + mr.height / 2;
+      lines.forEach(o => {
+        const r = o.line.getBoundingClientRect();
+        const dist = Math.abs(r.top + r.height / 2 - markMid);
+        const k = Math.max(0, 1 - dist / RADIUS);
+        const d = MAX_SHIFT * k * k * (3 - 2 * k);
+        o.left.style.transform  = "translate3d(" + (-d) + "px,0,0)";
+        o.right.style.transform = "translate3d(" + d + "px,0,0)";
+      });
+      ticking = false;
+    }
+
+    window.addEventListener("scroll", () => {
+      if (!ticking){ ticking = true; requestAnimationFrame(update); }
+    }, { passive:true });
+
+    let rt;
+    window.addEventListener("resize", () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => { build(); measure(); }, 180);
+    });
+
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
+    else build();
+  })();
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
