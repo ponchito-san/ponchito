@@ -15,7 +15,7 @@
   --rule:rgba(26,26,26,0.22);
   --rule-faint:rgba(26,26,26,0.12);
   --gutter:clamp(1.25rem,4vw,3.5rem);
-  --sans:"Figtree","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
   --serif:"Spectral",Georgia,"Times New Roman",serif;
 }
 
@@ -38,16 +38,16 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 /* ---------- títulos ---------- */
 .title-xl{
   font-family:var(--sans);
-  font-weight:800;
+  font-weight:700;
   font-size:clamp(3rem,10vw,7.5rem);
   line-height:0.88;
-  letter-spacing:-0.035em;
+  letter-spacing:-0.028em;
   text-transform:lowercase;
   margin:0;
 }
 .title-md{
   font-family:var(--sans);
-  font-weight:800;
+  font-weight:700;
   font-size:clamp(1.6rem,4vw,2.6rem);
   line-height:0.95;
   letter-spacing:-0.03em;
@@ -56,7 +56,7 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 }
 .label{
   font-family:var(--sans);
-  font-weight:600;
+  font-weight:500;
   font-size:0.78rem;
   letter-spacing:0.02em;
   text-transform:lowercase;
@@ -83,9 +83,10 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 }
 .nav-mark{
   display:flex;align-items:center;gap:0.5rem;
-  font-family:var(--sans);font-weight:800;
+  font-family:var(--sans);font-weight:700;
   font-size:0.95rem;letter-spacing:-0.02em;text-transform:lowercase;
 }
+.nav-mark .brand-mark{text-transform:none;letter-spacing:normal;}
 .nav-dog{width:30px;height:17px;color:var(--blue);flex:none;}
 .nav-links{display:flex;gap:clamp(1rem,3vw,2.4rem);list-style:none;margin:0;padding:0;}
 .nav-links a{
@@ -93,7 +94,7 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
   font-size:0.86rem;letter-spacing:-0.01em;text-transform:lowercase;color:var(--ink-mid);
 }
 .nav-links a:hover{color:var(--ink);}
-.nav-toggle{font-family:var(--sans);font-weight:600;font-size:0.86rem;text-transform:lowercase;display:none;}
+.nav-toggle{font-family:var(--sans);font-weight:500;font-size:0.86rem;text-transform:lowercase;display:none;}
 
 @media (max-width:760px){
   .nav-links{
@@ -102,7 +103,7 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
     padding:0 var(--gutter);gap:1.4rem;display:none;
   }
   .nav-links.is-open{display:flex;}
-  .nav-links a{font-family:var(--sans);font-weight:800;font-size:2rem;letter-spacing:-0.03em;}
+  .nav-links a{font-family:var(--sans);font-weight:700;font-size:2rem;letter-spacing:-0.03em;}
   .nav-toggle{display:inline-block;position:relative;z-index:70;}
 }
 
@@ -131,8 +132,8 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
   padding:0 var(--gutter) 1.8rem;
 }
 .hero-name{
-  font-family:var(--sans);font-weight:800;
-  font-size:clamp(2.2rem,7vw,5rem);line-height:0.88;letter-spacing:-0.035em;
+  font-family:var(--sans);font-weight:700;
+  font-size:clamp(2.2rem,7vw,5rem);line-height:0.88;letter-spacing:-0.028em;
   text-transform:lowercase;margin:0;
 }
 
@@ -143,6 +144,15 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
   font-size:clamp(1.05rem,1.4vw,1.25rem);line-height:1.85;color:var(--ink);margin:0 0 2.2rem;
 }
 .manifesto-inner p:last-child{margin-bottom:0;}
+
+/* intro de marina: es un título, no un párrafo */
+#intro .manifesto-inner{max-width:60rem;}
+#intro .manifesto-inner p{
+  font-family:var(--sans);font-weight:700;
+  font-size:clamp(1.9rem,4.6vw,3.6rem);line-height:1.04;letter-spacing:-0.028em;
+  text-transform:lowercase;margin:0 0 0.4em;
+}
+#intro .manifesto-inner p:last-child{color:var(--blue);}
 .sline{display:block;position:relative;width:100%;}
 .sline-half{position:absolute;left:0;right:0;top:0;white-space:pre;text-align:center;will-change:transform;}
 .sline-half.l{clip-path:inset(0 50% 0 0);}
@@ -176,12 +186,12 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 }
 .cv-item:first-child{border-top:1px solid var(--rule);}
 .cv-when{
-  font-family:var(--sans);font-weight:600;
+  font-family:var(--sans);font-weight:500;
   font-size:0.86rem;letter-spacing:-0.01em;text-transform:lowercase;
   color:var(--blue);padding-top:0.35rem;
 }
 .cv-role{
-  font-family:var(--sans);font-weight:800;
+  font-family:var(--sans);font-weight:700;
   font-size:1.25rem;line-height:1.15;letter-spacing:-0.025em;
   margin:0 0 0.25rem;
 }
@@ -199,7 +209,7 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 }
 .cv-tag{
   display:inline-block;margin-top:0.7rem;
-  font-family:var(--sans);font-weight:600;font-size:0.76rem;text-transform:lowercase;
+  font-family:var(--sans);font-weight:500;font-size:0.76rem;text-transform:lowercase;
   color:var(--ink);background:var(--yellow);padding:0.25rem 0.6rem;
 }
 @media (max-width:760px){
@@ -210,14 +220,14 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 /* ---------- columnas (habilidades) ---------- */
 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3.5rem);}
 .cols h3{
-  font-family:var(--sans);font-weight:800;
+  font-family:var(--sans);font-weight:700;
   font-size:1.1rem;letter-spacing:-0.02em;text-transform:lowercase;
   margin:0 0 1rem;
 }
 .cols ul{list-style:none;margin:0;padding:0;}
 .cols li{font-size:0.95rem;line-height:1.95;color:var(--ink-mid);}
 .cols .lang{display:flex;justify-content:space-between;gap:1rem;max-width:16rem;}
-.cols .lang .lvl{font-family:var(--sans);font-weight:600;font-size:0.82rem;color:var(--blue);}
+.cols .lang .lvl{font-family:var(--sans);font-weight:500;font-size:0.82rem;color:var(--blue);}
 @media (max-width:760px){ .cols{grid-template-columns:1fr;gap:2.4rem;} }
 
 /* ---------- contacto ---------- */
@@ -228,7 +238,7 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
   font-size:1rem;
 }
 .contact-rows .row .k{
-  font-family:var(--sans);font-weight:600;font-size:0.82rem;text-transform:lowercase;color:var(--ink-faint);
+  font-family:var(--sans);font-weight:500;font-size:0.82rem;text-transform:lowercase;color:var(--ink-faint);
 }
 .contact-rows a{border-bottom:1px solid var(--rule);padding-bottom:1px;}
 .contact-rows a:hover{border-color:var(--ink);}
@@ -245,16 +255,16 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
   padding:1.8rem 0;border-bottom:1px solid var(--rule-faint);
 }
 .post-row .date{
-  font-family:var(--sans);font-weight:600;font-size:0.82rem;text-transform:lowercase;
+  font-family:var(--sans);font-weight:500;font-size:0.82rem;text-transform:lowercase;
   color:var(--blue);padding-top:0.35rem;
 }
 .post-row h3{
-  font-family:var(--sans);font-weight:800;
+  font-family:var(--sans);font-weight:700;
   margin:0 0 0.5rem;font-size:1.25rem;letter-spacing:-0.025em;line-height:1.15;text-transform:lowercase;
 }
 .post-row p{margin:0 0 0.7rem;color:var(--ink-mid);font-size:0.95rem;line-height:1.65;max-width:52ch;}
 .post-row a.read{
-  font-family:var(--sans);font-weight:600;font-size:0.82rem;text-transform:lowercase;
+  font-family:var(--sans);font-weight:500;font-size:0.82rem;text-transform:lowercase;
   border-bottom:1px solid var(--ink);padding-bottom:1px;
 }
 @media (max-width:700px){
@@ -286,7 +296,7 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 .brand-mark.on-film{color:#fff;}
 .brand-tagline{position:relative;z-index:2;margin-top:1.4rem;text-align:center;}
 .brand-tagline p{
-  margin:0;font-family:var(--sans);font-weight:600;
+  margin:0;font-family:var(--sans);font-weight:500;
   font-size:0.86rem;text-transform:lowercase;color:var(--ink-mid);
 }
 .brand-tagline.on-film p{color:rgba(255,255,255,0.85);}
@@ -298,17 +308,73 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 .film-upload.on-film{color:rgba(255,255,255,0.8);}
 .film-upload input{display:none;}
 
-.look-list{display:flex;flex-direction:column;gap:clamp(3.5rem,7vw,6rem);}
-.look-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--gutter);align-items:end;}
-.look-photo{aspect-ratio:4/5;}
-.look-photo.is-tall{aspect-ratio:3/4.4;}
-.look-caption{
-  grid-column:1 / -1;display:flex;justify-content:space-between;align-items:baseline;gap:2rem;
-  border-top:1px solid #d8c3bd;padding-top:0.8rem;
+/* ---------- ponchito: riel de ropa ---------- */
+.rack{
+  --gw:230px;
+  position:relative;overflow:hidden;
+  padding:0 0 1rem;
+  margin-top:1.5rem;
 }
-.look-caption .cap-text{font-size:0.95rem;color:var(--ink-mid);max-width:44ch;line-height:1.6;}
-#look .slot{background-color:var(--pink);}
-@media (max-width:760px){ .look-row{grid-template-columns:1fr;} }
+.rack + .rack{margin-top:3.5rem;}
+.rail{
+  position:absolute;left:0;right:0;
+  top:calc(var(--gw) * 0.035);
+  height:3px;background:var(--ink);z-index:1;
+}
+.rack-track{
+  display:flex;gap:2.2rem;
+  padding-left:var(--gutter);
+  width:max-content;
+  will-change:transform;
+}
+.garment{
+  position:relative;z-index:2;margin:0;
+  flex:0 0 var(--gw);
+  padding-top:calc(var(--gw) * 0.30);
+  transform-origin:50% calc(var(--gw) * 0.035);
+  animation:sway 3.6s ease-in-out infinite alternate;
+}
+.garment:nth-child(2n){animation-duration:4.2s;animation-delay:-1.3s;}
+.garment:nth-child(3n){animation-duration:3.1s;animation-delay:-2.1s;}
+@keyframes sway{
+  from{transform:rotate(-0.9deg);}
+  to{transform:rotate(0.9deg);}
+}
+.hanger{
+  position:absolute;top:0;left:0;z-index:3;
+  width:100%;height:calc(var(--gw) * 0.45);
+  color:var(--ink);pointer-events:none;
+}
+.frame{aspect-ratio:3/4;}
+.garment:nth-child(3n+2) .frame{aspect-ratio:3/4.7;}
+.garment:nth-child(3n+3) .frame{aspect-ratio:1/1.12;}
+.garment:nth-child(3n+1) .frame{background-color:var(--pink);}
+.garment:nth-child(3n+2) .frame{background-color:var(--yellow);}
+.garment:nth-child(3n+3) .frame{background-color:#dde3e8;}
+
+/* etiqueta colgante, como de tienda */
+.tag{
+  display:inline-flex;align-items:center;gap:0.45rem;
+  margin-top:0.8rem;padding:0.32rem 0.6rem 0.32rem 0.5rem;
+  background:var(--paper);border:1px solid var(--rule);
+  font-family:var(--sans);font-weight:500;font-size:0.78rem;text-transform:lowercase;
+  transform:rotate(-2.5deg);transform-origin:left center;
+}
+.tag::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  border:1px solid var(--ink-faint);flex:none;
+}
+.garment:nth-child(2n) .tag{transform:rotate(2deg);}
+
+/* sin movimiento: el riel se recorre a mano */
+.rack.is-static{overflow-x:auto;}
+@media (prefers-reduced-motion:reduce){
+  .garment{animation:none;}
+}
+@media (max-width:760px){
+  .rack{--gw:170px;}
+  .rack-track{gap:1.4rem;}
+}
 
 .scatter{position:relative;width:100%;aspect-ratio:1 / 1.15;}
 .scatter-tile{position:absolute;transform-origin:center center;transition:transform .22s ease;}
@@ -316,7 +382,7 @@ button{font-family:inherit;font-size:inherit;background:none;border:none;color:i
 #archive .slot{background-color:var(--yellow);}
 .scatter-text{position:absolute;}
 .scatter-text.label{
-  font-family:var(--sans);font-weight:600;font-size:0.82rem;text-transform:lowercase;color:var(--ink-mid);
+  font-family:var(--sans);font-weight:500;font-size:0.82rem;text-transform:lowercase;color:var(--ink-mid);
 }
 .scatter-text.note{font-size:0.95rem;line-height:1.6;color:var(--ink-mid);}
 @media (prefers-reduced-motion:reduce){
@@ -334,7 +400,7 @@ footer{margin-top:6rem;padding:0 var(--gutter) 2rem;border-top:1px solid var(--r
 .crest{display:flex;flex-direction:column;align-items:center;gap:0.7rem;padding:3.4rem 0 3rem;}
 .crest-dog{width:88px;height:51px;color:var(--blue);}
 .crest-name{
-  font-family:var(--sans);font-weight:800;
+  font-family:var(--sans);font-weight:700;
   font-size:1.5rem;letter-spacing:-0.03em;text-transform:lowercase;
 }
 .crest-mark{font-size:17px;color:var(--ink);}
@@ -487,13 +553,13 @@ footer .label{font-family:var(--sans);font-weight:500;}
 .hcard:nth-child(4n+4){background:#e6e2d9;}
 .hcard-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;}
 .hcard-when{
-  font-family:var(--sans);font-weight:800;
+  font-family:var(--sans);font-weight:700;
   font-size:clamp(1.3rem,2.4vw,2rem);letter-spacing:-0.03em;
   color:var(--blue);
 }
 .hcard-title{
-  font-family:var(--sans);font-weight:800;
-  font-size:clamp(2.4rem,5.6vw,4.8rem);line-height:0.9;letter-spacing:-0.04em;
+  font-family:var(--sans);font-weight:700;
+  font-size:clamp(2.4rem,5.6vw,4.8rem);line-height:0.9;letter-spacing:-0.03em;
   text-transform:lowercase;margin:1.5rem 0 0.4rem;
 }
 .hcard-place{font-style:italic;font-size:1.05rem;color:var(--ink-mid);margin:0 0 1.2rem;}
