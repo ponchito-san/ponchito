@@ -7,7 +7,7 @@
 <meta name="description" content="Ponchito — ropa hecha en Ciudad de México.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,7 +31,7 @@
 <section class="film-hero" id="top">
   <div class="film"><video id="brandVideo" muted loop playsinline></video></div>
 
-  <div class="brand-mark" id="brandMark" aria-label="Ponchito">
+  <div class="brand-mark logo-anim" id="brandMark" aria-label="Ponchito">
     <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
   </div>
   <div class="brand-tagline" id="brandTagline">
@@ -64,8 +64,7 @@
 <section id="looks" class="section-pad">
   <div class="wrap">
     <div class="section-head">
-      <span class="meta">01 / Looks</span>
-      <h2 class="display-md">Tanda actual</h2>
+      <h2 class="title-xl split">looks</h2>
     </div>
 
     <div class="look-list" id="look">
@@ -73,7 +72,7 @@
         <div class="slot look-photo is-tall" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
         <div class="slot look-photo" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
         <div class="look-caption">
-          <span class="meta">Look 01</span>
+          <span class="label">Look 01</span>
           <span class="cap-text">Describe la pieza — tela, corte, o de dónde salió.</span>
         </div>
       </div>
@@ -81,7 +80,7 @@
         <div class="slot look-photo" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
         <div class="slot look-photo is-tall" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
         <div class="look-caption">
-          <span class="meta">Look 02</span>
+          <span class="label">Look 02</span>
           <span class="cap-text">Describe la pieza — tela, corte, o de dónde salió.</span>
         </div>
       </div>
@@ -89,7 +88,7 @@
         <div class="slot look-photo is-tall" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
         <div class="slot look-photo" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
         <div class="look-caption">
-          <span class="meta">Look 03</span>
+          <span class="label">Look 03</span>
           <span class="cap-text">Describe la pieza — tela, corte, o de dónde salió.</span>
         </div>
       </div>
@@ -101,8 +100,7 @@
 <section id="archive" class="section-pad">
   <div class="wrap">
     <div class="section-head">
-      <span class="meta">02 / Archivo</span>
-      <h2 class="display-md">Archivo</h2>
+      <h2 class="title-xl split">archivo</h2>
     </div>
 
     <!-- posiciones en % — se pueden mover cambiando left/top/width -->
@@ -142,7 +140,7 @@
 <section id="tienda" class="section-pad">
   <div class="wrap">
     <div class="section-head">
-      <span class="meta">03 / Contacto</span>
+      <h2 class="title-xl split">contacto</h2>
     </div>
     <div class="contact-rows">
       <div class="row"><span class="k">Instagram</span><a href="https://instagram.com/ponchito_______" target="_blank" rel="noopener">@ponchito_______</a></div>
@@ -158,10 +156,10 @@
     <span class="brand-mark crest-mark" aria-label="Ponchito">
       <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
     </span>
-    <span class="meta">Ciudad de México</span>
+    <span class="label">Ciudad de México</span>
   </div>
   <div class="footer-row">
-    <span class="meta meta-ink">© <span id="year"></span> Ponchito</span>
+    <span class="label label-ink">© <span id="year"></span> Ponchito</span>
     <span class="socials meta meta-ink">
       <a href="https://instagram.com/ponchito_______" target="_blank" rel="noopener">Instagram</a>
       <a href="mailto:marsandovv@gmail.com">Correo</a>
@@ -320,6 +318,48 @@
 
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
     else build();
+  })();
+
+  /* ---------- letras que suben (títulos) ---------- */
+  (function letters(){
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.querySelectorAll(".split").forEach(el => {
+      const label = el.textContent.replace(/\s+/g, " ").trim();
+      const nodes = Array.from(el.childNodes);
+      el.textContent = "";
+      let i = 0;
+      nodes.forEach(n => {
+        if (n.nodeType !== 3){ el.appendChild(n); return; }
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)){ el.appendChild(document.createTextNode(" ")); return; }
+          const mask = document.createElement("span");
+          mask.className = "lt-mask";
+          mask.setAttribute("aria-hidden", "true");
+          Array.from(part).forEach(ch => {
+            const s = document.createElement("span");
+            s.className = "lt";
+            s.textContent = ch;
+            s.style.transitionDelay = (i++ * 32) + "ms";
+            mask.appendChild(s);
+          });
+          el.appendChild(mask);
+        });
+      });
+      el.setAttribute("aria-label", label);
+    });
+
+    const targets = document.querySelectorAll(".split, .logo-anim, .plus-row");
+    if (reduce || !("IntersectionObserver" in window)){
+      targets.forEach(t => t.classList.add("is-in"));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting){ e.target.classList.add("is-in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.2 });
+    targets.forEach(t => io.observe(t));
   })();
 
   document.getElementById("year").textContent = new Date().getFullYear();
