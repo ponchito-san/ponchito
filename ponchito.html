@@ -7,7 +7,7 @@
 <meta name="description" content="Ponchito — ropa hecha en Ciudad de México.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -75,7 +75,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2 class="title-xl split">looks</h2>
-      <span class="label label-ink">pasa el cursor para detener el riel</span>
+      <span class="label label-ink">pasa el cursor para detener el riel · haz clic en una foto para acercarla</span>
     </div>
   </div>
 
@@ -83,34 +83,40 @@
     <div class="rail"></div>
     <div class="rack-track">
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="1"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 1</figcaption>
+        </div>
       </figure>
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="2"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 2</figcaption>
+        </div>
       </figure>
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="3"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 3</figcaption>
+        </div>
       </figure>
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="4"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 4</figcaption>
+        </div>
       </figure>
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="5"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 5</figcaption>
+        </div>
       </figure>
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="6"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 6</figcaption>
+        </div>
       </figure>
     </div>
   </div>
@@ -119,34 +125,40 @@
     <div class="rail"></div>
     <div class="rack-track">
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="7"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 7</figcaption>
+        </div>
       </figure>
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="8"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 8</figcaption>
+        </div>
       </figure>
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="9"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 9</figcaption>
+        </div>
       </figure>
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="10"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 10</figcaption>
+        </div>
       </figure>
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="11"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 11</figcaption>
+        </div>
       </figure>
       <figure class="garment">
+        <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
         <div class="slot frame" data-slot data-look="12"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
-        <figcaption class="tag">look 12</figcaption>
+        </div>
       </figure>
     </div>
   </div>
@@ -243,6 +255,7 @@
   document.addEventListener("click", e => {
     const slot = e.target.closest(".slot[data-slot]");
     if (!slot || e.target.tagName === "INPUT") return;
+    if (slot.closest(".rack") && slot.classList.contains("has-image")) return;
     const input = slot.querySelector("input[type=file]");
     if (input) input.click();
   });
@@ -258,11 +271,14 @@
       const all = key ? document.querySelectorAll('.slot[data-look="' + key + '"]') : [slot];
       all.forEach(s => {
         s.style.backgroundImage = "url(" + reader.result + ")";
+        s.dataset.src = reader.result;
         s.classList.add("has-image");
       });
     };
     reader.readAsDataURL(file);
   });
+
+  let ZOOM_OPEN = false;
 
   /* ---------- riel de ropa: corre sin fin, se detiene al pasar el cursor ---------- */
   (function racks(){
@@ -271,6 +287,8 @@
     if (!racks.length) return;
 
     const SPEED = 38;          // px por segundo
+    const TURN = 22;           // giro extra en las orillas (grados)
+    const MIN_TURN = 9;        // giro mínimo, para que ninguna se vea de frente
     const states = [];
 
     racks.forEach(rack => {
@@ -298,6 +316,10 @@
         let guard = 0;
         while (st.setW > 0 && track.scrollWidth < st.setW + window.innerWidth * 1.5 && guard++ < 8) addSet();
         if (st.dir > 0) st.x = -st.setW;
+        st.items = Array.from(track.children).map(g => ({
+          turn: g.querySelector(".garment-turn"),
+          center: g.offsetLeft + g.offsetWidth / 2
+        }));
       };
       st.measure();
 
@@ -332,12 +354,24 @@
       boost *= 0.92;
       states.forEach(st => {
         if (!st.visible || !st.setW) return;
+        if (ZOOM_OPEN) return;
         const goal = st.hover ? 0 : SPEED + boost;
         st.speed += (goal - st.speed) * 0.08;
         st.x += st.dir * st.speed * dt;
         if (st.dir < 0 && st.x <= -st.setW) st.x += st.setW;
         if (st.dir > 0 && st.x >= 0) st.x -= st.setW;
         st.track.style.transform = "translate3d(" + st.x + "px,0,0)";
+
+        // cada prenda gira sobre su gancho: las de las orillas más, las del centro menos
+        const vw = window.innerWidth, half = vw / 2;
+        st.items.forEach(it => {
+          const cx = it.center + st.x;
+          if (cx < -400 || cx > vw + 400) return;
+          const n = Math.max(-1.2, Math.min(1.2, (cx - half) / half));
+          const a = -(MIN_TURN * Math.sign(n || 1) + n * TURN);
+          it.turn.dataset.angle = a.toFixed(2);
+          it.turn.style.transform = "perspective(900px) rotateY(" + a.toFixed(2) + "deg)";
+        });
       });
       requestAnimationFrame(tick);
     }
@@ -348,6 +382,93 @@
       clearTimeout(rt);
       rt = setTimeout(() => states.forEach(s => s.measure()), 150);
     });
+  })();
+
+  /* ---------- clic en una foto del riel: sale hacia ti ---------- */
+  (function zoom(){
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let open = null;
+
+    document.addEventListener("click", e => {
+      if (open) return;
+      const slot = e.target.closest(".rack .slot.has-image");
+      if (!slot || !slot.dataset.src) return;
+      show(slot);
+    });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && open) hide(); });
+
+    function show(slot){
+      ZOOM_OPEN = true;
+      const src = slot.dataset.src;
+      const turn = slot.closest(".garment-turn");
+      const angle = turn ? parseFloat(turn.dataset.angle || 0) : 0;
+      const r = slot.getBoundingClientRect();
+
+      const back = document.createElement("div");
+      back.className = "zoom-back";
+      back.setAttribute("role", "dialog");
+      back.setAttribute("aria-modal", "true");
+      back.setAttribute("aria-label", "Foto ampliada");
+      const photo = document.createElement("div");
+      photo.className = "zoom-photo";
+      photo.style.backgroundImage = 'url("' + src + '")';
+      const btn = document.createElement("button");
+      btn.className = "zoom-close";
+      btn.textContent = "cerrar";
+      back.appendChild(photo);
+      back.appendChild(btn);
+      document.body.appendChild(back);
+      document.documentElement.style.overflow = "hidden";
+      back.addEventListener("click", hide);
+
+      const img = new Image();
+      img.onload = () => place(img.naturalWidth / img.naturalHeight);
+      img.onerror = () => place(slot.offsetWidth / slot.offsetHeight);
+      img.src = src;
+
+      function place(ratio){
+        const maxW = window.innerWidth * 0.86, maxH = window.innerHeight * 0.84;
+        let w = maxW, h = w / ratio;
+        if (h > maxH){ h = maxH; w = h * ratio; }
+        const left = (window.innerWidth - w) / 2, top = (window.innerHeight - h) / 2;
+        Object.assign(photo.style, { left: left + "px", top: top + "px", width: w + "px", height: h + "px" });
+
+        // empieza exactamente donde estaba la foto en el riel, girada igual
+        const sx = slot.offsetWidth / w, sy = slot.offsetHeight / h;
+        const dx = (r.left + r.width / 2) - (left + w / 2);
+        const dy = (r.top + r.height / 2) - (top + h / 2);
+        const persp = (900 / sx).toFixed(0);
+        const from = "translate(" + dx + "px," + dy + "px) scale(" + sx + "," + sy + ") perspective(" + persp + "px) rotateY(" + angle + "deg)";
+        const to   = "translate(0px,0px) scale(1,1) perspective(" + persp + "px) rotateY(0deg)";
+
+        open = { back, photo, slot, from };
+        slot.style.visibility = "hidden";
+        photo.style.transform = from;
+        photo.getBoundingClientRect();
+        back.classList.add("is-open");
+        if (!reduce) photo.style.transition = "transform .75s cubic-bezier(.16,.8,.2,1)";
+        photo.style.transform = to;
+        btn.focus({ preventScroll:true });
+      }
+    }
+
+    function hide(){
+      if (!open) return;
+      const o = open;
+      open = null;
+      o.back.classList.remove("is-open");
+      const done = () => {
+        o.slot.style.visibility = "";
+        o.back.remove();
+        document.documentElement.style.overflow = "";
+        ZOOM_OPEN = false;
+      };
+      if (reduce){ done(); return; }
+      o.photo.style.transition = "transform .6s cubic-bezier(.5,0,.2,1)";
+      o.photo.style.transform = o.from;
+      o.photo.addEventListener("transitionend", done, { once:true });
+      setTimeout(done, 900);
+    }
   })();
 
   /* ---------- video de fondo ---------- */
