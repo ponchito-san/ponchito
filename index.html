@@ -7,7 +7,7 @@
 <meta name="description" content="Marina Sandoval — diseñadora de modas. Sostenibilidad, calzado y operaciones. Ciudad de México.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Bodoni+Moda:opsz,wght@6..96,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sacramento&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,35 +33,48 @@
   </symbol>
 </svg>
 
+<!-- INTRO: aparece una vez por visita, como spacelab -->
+<div class="intro" id="introOverlay" aria-hidden="true">
+  <div class="intro-grid"><span class="plus" style="transition-delay:0ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:40ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:80ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:120ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:160ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:200ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:240ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:60ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:100ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:140ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:180ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:220ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:260ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:300ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:120ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:160ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:200ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:240ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:280ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:320ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:360ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:180ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:220ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:260ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:300ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:340ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:380ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:420ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:240ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:280ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:320ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:360ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:400ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:440ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:480ms"><span class="plus-x"></span></span></div>
+  <div class="intro-frame"></div>
+  <span class="intro-name write" id="introName">Marina Sandoval</span>
+  <span class="intro-corner tl">diseño · operaciones · producción</span>
+  <span class="intro-corner tr">cdmx <span data-clock>--:--</span></span>
+  <span class="intro-corner bl">moda — ciudad de méxico</span>
+  <button class="intro-corner br" id="introSkip" type="button" tabindex="-1">entrar ↓</button>
+  <div class="intro-bar"><i></i></div>
+</div>
+
 <nav class="nav" id="siteNav">
   <a href="#top" class="nav-mark">
     <svg class="nav-dog" aria-hidden="true"><use href="#dogmark"/></svg>
     <span>Marina Sandoval</span>
   </a>
+  <span class="clock" aria-label="Hora en Ciudad de México"><span class="clock-city">cdmx</span> <span data-clock>--:--</span></span>
   <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#trabajo">Trabajo</a></li>
-    <li><a href="#journal">Journal</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-    <li><a href="ponchito.html">Ponchito</a></li>
+    <li><a href="#trabajo">trabajo</a></li>
+    <li><a href="#journal">journal</a></li>
+    <li><a href="#contacto">contacto</a></li>
+    <li><a href="ponchito.html">ponchito</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="slot" data-slot>
-    <span class="slot-hint">Agregar retrato</span>
+    <span class="slot-hint">agregar retrato</span>
     <input type="file" accept="image/*">
   </div>
   <div class="hero-foot">
-    <h1 class="hero-name split">marina<br>sandoval</h1>
+    <h1 class="hero-name write" id="heroName">Marina Sandoval</h1>
     <span class="label label-ink">ciudad de méxico</span>
   </div>
 </section>
 
 <!-- INTRO: las líneas se abren alrededor del perrito -->
 <section class="manifesto" id="intro">
-  <div class="manifesto-inner" id="introText">
+  <div class="manifesto-inner crop" id="introText">
     <p>diseñadora de moda y fashion business manager.</p>
     <p>operaciones, producción y sostenibilidad.</p>
   </div>
@@ -79,7 +92,10 @@
 <section id="trabajo" class="hscroll">
   <div class="hscroll-sticky">
     <div class="hscroll-head">
+      <div style="flex:1">
+      <div class="spec"><i class="tick l"></i><span>experiencia profesional</span><span><i class="sq sq-b"></i>2024 — 2026</span><i class="tick r"></i></div>
       <h2 class="title-xl split">experiencia</h2>
+      </div>
       <span class="label label-ink">desliza →</span>
     </div>
     <div class="hscroll-track">
@@ -185,6 +201,7 @@
 <section id="educacion" class="section-pad">
   <div class="wrap">
     <div class="section-head">
+      <div class="spec"><i class="tick l"></i><span>formación</span><span><i class="sq sq-p"></i>2022 — 2027</span><i class="tick r"></i></div>
       <h2 class="title-xl split">educación</h2>
     </div>
     <ol class="cv-list">
@@ -227,6 +244,7 @@
 <section id="habilidades" class="section-pad">
   <div class="wrap">
     <div class="section-head">
+      <div class="spec"><i class="tick l"></i><span>habilidades y herramientas</span><span><i class="sq sq-y"></i>es · en · ca · de</span><i class="tick r"></i></div>
       <h2 class="title-xl split">habilidades</h2>
     </div>
 
@@ -274,6 +292,7 @@
 <section id="journal" class="section-pad">
   <div class="wrap">
     <div class="section-head">
+      <div class="spec"><i class="tick l"></i><span>escritos</span><span><i class="sq sq-b"></i>substack / marsandovv</span><i class="tick r"></i></div>
       <h2 class="title-xl split">journal</h2>
     </div>
 
@@ -289,20 +308,48 @@
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="section-pad">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="title-xl split">contacto</h2>
+<!-- CONTACTO: textos chicos en las esquinas, lo gráfico al centro -->
+<section id="contacto" class="stage">
+  <div class="stage-frame">
+
+    <div class="corner tl">
+      <span class="label label-ink">contacto</span>
+      <a href="mailto:marsandovv@gmail.com">marsandovv@gmail.com</a>
     </div>
-    <div class="contact-rows">
-      <div class="row"><span class="k">Correo</span><a href="mailto:marsandovv@gmail.com">marsandovv@gmail.com</a></div>
-      <div class="row"><span class="k">Teléfono</span><a href="tel:+525549362164">+52 55 4936 2164</a></div>
-      <div class="row"><span class="k">Instagram</span><a href="https://instagram.com/m._harina" target="_blank" rel="noopener">@m._harina</a></div>
-      <div class="row"><span class="k">Substack</span><a href="https://marsandovv.substack.com" target="_blank" rel="noopener">marsandovv</a></div>
-      <div class="row"><span class="k">Marca</span><a href="ponchito.html">Ponchito</a></div>
-      <div class="row"><span class="k">Ciudad</span><span>Ciudad de México</span></div>
+    <div class="corner tr">
+      <a href="https://instagram.com/m._harina" target="_blank" rel="noopener">@m._harina</a>
+      <a href="https://marsandovv.substack.com" target="_blank" rel="noopener">substack</a>
     </div>
+    <div class="corner bl">
+      <a href="tel:+525549362164">+52 55 4936 2164</a>
+      <a href="ponchito.html">ponchito</a>
+    </div>
+    <div class="corner br">
+      <span>ciudad de méxico</span>
+      <span data-clock>--:--</span>
+    </div>
+
+    <div class="stage-center">
+      <!-- el perrito sobre su cuadrícula de construcción -->
+      <figure class="plate">
+        <div class="plate-grid">
+          <svg class="plate-dog" aria-hidden="true"><use href="#dogmark"/></svg>
+        </div>
+        <div class="dim dim-v" aria-hidden="true"><span>a</span></div>
+        <div class="dim dim-h" aria-hidden="true"><span>b</span></div>
+        <figcaption class="plate-note">perro de colima, reconstruido sobre retícula. a = alto · b = largo</figcaption>
+      </figure>
+
+      <!-- tu foto -->
+      <div class="me">
+        <div class="slot me-photo" data-slot>
+          <span class="slot-hint">tu foto</span>
+          <input type="file" accept="image/*">
+        </div>
+        <span class="label label-ink">marina sandoval</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -314,7 +361,7 @@
   </div>
   <div class="footer-row">
     <span class="label label-ink">© <span id="year"></span> Marina Sandoval</span>
-    <span class="socials meta meta-ink">
+    <span class="socials label label-ink">
       <a href="https://instagram.com/m._harina" target="_blank" rel="noopener">Instagram</a>
       <a href="mailto:marsandovv@gmail.com">Correo</a>
       <a href="ponchito.html">Ponchito</a>
@@ -323,6 +370,63 @@
 </footer>
 
 <script>
+  /* ---------- hora de cdmx ---------- */
+  (function clock(){
+    const els = document.querySelectorAll("[data-clock]");
+    if (!els.length) return;
+    let fmt = null;
+    try {
+      fmt = new Intl.DateTimeFormat("es-MX", { timeZone:"America/Mexico_City", hour:"2-digit", minute:"2-digit", hour12:false });
+    } catch(e){}
+    const tick = () => { if (fmt){ const t = fmt.format(new Date()); els.forEach(el => el.textContent = t); } };
+    tick();
+    setInterval(tick, 10000);
+  })();
+
+  /* ---------- intro: una vez por visita ---------- */
+  (function intro(){
+    const ov = document.getElementById("introOverlay");
+    const hero = document.getElementById("heroName");
+    const name = document.getElementById("introName");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let seen = false;
+    try { seen = sessionStorage.getItem("ms-intro") === "1"; } catch(e){}
+
+    const writeHero = (instant) => {
+      if (!hero) return;
+      if (instant) hero.classList.add("no-anim");
+      hero.classList.add("is-in");
+    };
+
+    if (!ov || seen || reduce){
+      if (ov) ov.remove();
+      setTimeout(() => writeHero(reduce), 250);
+      return;
+    }
+    try { sessionStorage.setItem("ms-intro", "1"); } catch(e){}
+
+    document.documentElement.style.overflow = "hidden";
+    let left = false;
+    const leave = () => {
+      if (left) return;
+      left = true;
+      writeHero(true);
+      ov.classList.add("is-leaving");
+      document.documentElement.style.overflow = "";
+      setTimeout(() => ov.remove(), 1100);
+    };
+
+    requestAnimationFrame(() => ov.classList.add("is-on"));
+    const fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    Promise.race([fontsReady, new Promise(r => setTimeout(r, 900))]).then(() => {
+      setTimeout(() => name.classList.add("is-in"), 350);
+    });
+    const timer = setTimeout(leave, 3300);
+    const skip = () => { clearTimeout(timer); leave(); };
+    ["click","wheel","touchstart","keydown"].forEach(ev =>
+      window.addEventListener(ev, skip, { once:true, passive:true }));
+  })();
+
   /* ---------- EDITA AQUÍ: tus posts ---------- */
   const POSTS = [
     { date: "Sep 2026", title: "Título del post", blurb: "Una línea sobre de qué trata.", link: "https://marsandovv.substack.com" },
@@ -493,7 +597,7 @@
       el.setAttribute("aria-label", label);
     });
 
-    const targets = document.querySelectorAll(".split, .logo-anim, .plus-row");
+    const targets = document.querySelectorAll(".split, .logo-anim, .plus-row, .spec");
     if (reduce || !("IntersectionObserver" in window)){
       targets.forEach(t => t.classList.add("is-in"));
       return;

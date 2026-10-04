@@ -28,12 +28,13 @@
       <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
     </span>
   </a>
+  <span class="clock" aria-label="Hora en Ciudad de México"><span class="clock-city">cdmx</span> <span data-clock>--:--</span></span>
   <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#looks">looks</a></li>
-    <li><a href="#archive">Archivo</a></li>
-    <li><a href="#tienda">Contacto</a></li>
-    <li><a href="index.html">Marina Sandoval</a></li>
+    <li><a href="#archive">archivo</a></li>
+    <li><a href="#tienda">contacto</a></li>
+    <li><a href="index.html">marina sandoval</a></li>
   </ul>
 </nav>
 
@@ -74,6 +75,7 @@
 <section id="looks" class="section-pad">
   <div class="wrap">
     <div class="section-head">
+      <div class="spec"><i class="tick l"></i><span>colección</span><span><i class="sq sq-p"></i>hecho en cdmx</span><i class="tick r"></i></div>
       <h2 class="title-xl split">looks</h2>
       <span class="label label-ink">pasa el cursor para detener el riel · haz clic en una foto para acercarla</span>
     </div>
@@ -168,6 +170,7 @@
 <section id="archive" class="section-pad">
   <div class="wrap">
     <div class="section-head">
+      <div class="spec"><i class="tick l"></i><span>archivo de proceso</span><span><i class="sq sq-y"></i>taller · telas · patrones</span><i class="tick r"></i></div>
       <h2 class="title-xl split">archivo</h2>
     </div>
 
@@ -208,6 +211,7 @@
 <section id="tienda" class="section-pad">
   <div class="wrap">
     <div class="section-head">
+      <div class="spec"><i class="tick l"></i><span>contacto</span><span><i class="sq sq-b"></i>@ponchito_______</span><i class="tick r"></i></div>
       <h2 class="title-xl split">contacto</h2>
     </div>
     <div class="contact-rows">
@@ -228,7 +232,7 @@
   </div>
   <div class="footer-row">
     <span class="label label-ink">© <span id="year"></span> Ponchito</span>
-    <span class="socials meta meta-ink">
+    <span class="socials label label-ink">
       <a href="https://instagram.com/ponchito_______" target="_blank" rel="noopener">Instagram</a>
       <a href="mailto:marsandovv@gmail.com">Correo</a>
       <a href="index.html">Marina Sandoval</a>
@@ -237,6 +241,19 @@
 </footer>
 
 <script>
+  /* ---------- hora de cdmx ---------- */
+  (function clock(){
+    const els = document.querySelectorAll("[data-clock]");
+    if (!els.length) return;
+    let fmt = null;
+    try {
+      fmt = new Intl.DateTimeFormat("es-MX", { timeZone:"America/Mexico_City", hour:"2-digit", minute:"2-digit", hour12:false });
+    } catch(e){}
+    const tick = () => { if (fmt){ const t = fmt.format(new Date()); els.forEach(el => el.textContent = t); } };
+    tick();
+    setInterval(tick, 10000);
+  })();
+
   /* ---------- menú móvil ---------- */
   const navToggle = document.getElementById("navToggle");
   const navLinks = document.getElementById("navLinks");
@@ -621,7 +638,7 @@
       el.setAttribute("aria-label", label);
     });
 
-    const targets = document.querySelectorAll(".split, .logo-anim, .plus-row");
+    const targets = document.querySelectorAll(".split, .logo-anim, .plus-row, .spec");
     if (reduce || !("IntersectionObserver" in window)){
       targets.forEach(t => t.classList.add("is-in"));
       return;
