@@ -40,19 +40,17 @@
 
 <!-- VIDEO + LOGO -->
 <section class="film-hero" id="top">
-  <div class="film"><video id="brandVideo" muted loop playsinline></video></div>
+  <div class="film">
+    <video id="brandVideo" src="media/ponchito.mp4" poster="media/ponchito-poster.jpg"
+           autoplay muted loop playsinline preload="auto" aria-label="Ponchito en pasarela"></video>
+  </div>
 
-  <div class="brand-mark logo-anim" id="brandMark" aria-label="Ponchito">
+  <div class="brand-mark logo-anim on-film" id="brandMark" aria-label="Ponchito">
     <span class="word">PON</span><span class="ring">CH</span><span class="ring">IT</span><span class="word">O</span>
   </div>
-  <div class="brand-tagline" id="brandTagline">
-    <p>Hecho en Ciudad de México</p>
+  <div class="brand-tagline on-film" id="brandTagline">
+    <p>hecho en ciudad de méxico</p>
   </div>
-
-  <label class="film-upload" id="filmUpload">
-    Poner video de fondo
-    <input type="file" accept="video/*" id="videoInput">
-  </label>
 </section>
 
 <!-- MANIFIESTO -->
@@ -87,37 +85,37 @@
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="1"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="1" role="img" aria-label="top verde y falda negra con olán" data-src="img/look-01.jpg" style="background-image:url('img/look-01-s.jpg');background-position:50% 40%"></div>
         </div>
       </figure>
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="2"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="2" role="img" aria-label="pantalón globo de mezclilla, de frente" data-src="img/look-02.jpg" style="background-image:url('img/look-02-s.jpg');background-position:50% 50%"></div>
         </div>
       </figure>
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="3"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="3" role="img" aria-label="abrigo de lana azul, de espaldas" data-src="img/look-03.jpg" style="background-image:url('img/look-03-s.jpg');background-position:50% 50%"></div>
         </div>
       </figure>
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="4"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="4" role="img" aria-label="chaqueta de seda verde, de espaldas" data-src="img/look-04.jpg" style="background-image:url('img/look-04-s.jpg');background-position:50% 45%"></div>
         </div>
       </figure>
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="5"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="5" role="img" aria-label="vestido negro de olanes frente a un muro rojo" data-src="img/look-05.jpg" style="background-image:url('img/look-05-s.jpg');background-position:58% 62%"></div>
         </div>
       </figure>
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="6"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="6" role="img" aria-label="blusa blanca de tirantes" data-src="img/look-06.jpg" style="background-image:url('img/look-06-s.jpg');background-position:52% 32%"></div>
         </div>
       </figure>
     </div>
@@ -129,37 +127,37 @@
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="7"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="7" role="img" aria-label="camisa blanca de satín, manos atrás" data-src="img/look-07.jpg" style="background-image:url('img/look-07-s.jpg');background-position:50% 55%"></div>
         </div>
       </figure>
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="8"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="8" role="img" aria-label="pantalón globo, de perfil" data-src="img/look-08.jpg" style="background-image:url('img/look-08-s.jpg');background-position:45% 50%"></div>
         </div>
       </figure>
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="9"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="9" role="img" aria-label="falda amarilla y blusa blanca de olanes" data-src="img/look-09.jpg" style="background-image:url('img/look-09-s.jpg');background-position:55% 55%"></div>
         </div>
       </figure>
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="10"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="10" role="img" aria-label="tejido de mohair gris, de espaldas" data-src="img/look-10.jpg" style="background-image:url('img/look-10-s.jpg');background-position:40% 72%"></div>
         </div>
       </figure>
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="11"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="11" role="img" aria-label="abrigo de lana azul y capa transparente" data-src="img/look-11.jpg" style="background-image:url('img/look-11-s.jpg');background-position:100% 50%"></div>
         </div>
       </figure>
       <figure class="garment">
         <div class="garment-turn">
         <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
-        <div class="slot frame" data-slot data-look="12"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <div class="slot frame has-image" data-slot data-look="12" role="img" aria-label="pantalón negro de rayas" data-src="img/look-12.jpg" style="background-image:url('img/look-12-s.jpg');background-position:58% 50%"></div>
         </div>
       </figure>
     </div>
@@ -174,35 +172,34 @@
       <h2 class="title-xl split">archivo</h2>
     </div>
 
-    <!-- posiciones en % — se pueden mover cambiando left/top/width -->
+    <!-- posiciones en % — se pueden mover cambiando left / top / width -->
     <div class="scatter">
-      <div class="slot scatter-tile" data-slot style="left:22%;top:3%;width:12%;aspect-ratio:3/4;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:30%;top:1%;width:11%;aspect-ratio:1/1;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:37%;top:5%;width:13%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:46%;top:0%;width:15%;aspect-ratio:3/2;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:26%;top:9%;width:12%;aspect-ratio:1/1;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:12%;top:12%;width:13%;aspect-ratio:3/4;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:2%;top:19%;width:15%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:13%;top:25%;width:11%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:20%;top:24%;width:13%;aspect-ratio:1/1;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:29%;top:27%;width:23%;aspect-ratio:3/4.6;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:14%;top:34%;width:10%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:45%;top:37%;width:16%;aspect-ratio:3/4;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:60%;top:39%;width:34%;aspect-ratio:3/4;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:30%;top:66%;width:17%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:18%;top:68%;width:19%;aspect-ratio:3/4;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:10%;top:74%;width:15%;aspect-ratio:1/1;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
-      <div class="slot scatter-tile" data-slot style="left:2%;top:79%;width:17%;aspect-ratio:4/3;"><span class="slot-hint">+</span><input type="file" accept="image/*"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="cama con sábanas blancas" style="left:4%;top:14%;width:16%;aspect-ratio:1.3333;background-image:url('img/archivo-12.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="etiqueta de ponchito cosida sobre lino" style="left:20%;top:2%;width:12%;aspect-ratio:0.75;background-image:url('img/archivo-01.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="bordado y botones de concha" style="left:30%;top:0%;width:14%;aspect-ratio:1.3058;background-image:url('img/archivo-10.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="reja de hierro frente a una iglesia, blanco y negro" style="left:42%;top:3%;width:16%;aspect-ratio:1.5;background-image:url('img/archivo-11.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="pies descalzos y pantalón globo" style="left:27%;top:8%;width:11%;aspect-ratio:0.7617;background-image:url('img/archivo-02.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="chamarra de piel en escena" style="left:70%;top:14%;width:14%;aspect-ratio:0.9681;background-image:url('img/archivo-16.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="pantalón globo de espaldas" style="left:14%;top:19%;width:12%;aspect-ratio:0.7233;background-image:url('img/archivo-04.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="detalle de abrigo con puño de lana" style="left:47%;top:22%;width:12%;aspect-ratio:0.7158;background-image:url('img/archivo-03.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="hombro y tejido de mohair" style="left:23%;top:22%;width:13%;aspect-ratio:0.6667;background-image:url('img/archivo-05.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="retrato escaneado" style="left:33%;top:24%;width:20%;aspect-ratio:0.6533;background-image:url('img/archivo-06.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="reja de hierro y blusa con rombos de mohair" style="left:56%;top:34%;width:26%;aspect-ratio:0.6667;background-image:url('img/archivo-08.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="instalación con telas colgadas" style="left:36%;top:60%;width:16%;aspect-ratio:0.6667;background-image:url('img/archivo-07.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="tejido sobre mesa de acero" style="left:18%;top:64%;width:17%;aspect-ratio:0.8;background-image:url('img/archivo-09.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="vestido negro junto a una puerta roja" style="left:3%;top:72%;width:20%;aspect-ratio:1.5;background-image:url('img/archivo-13.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="collage de fotos recortadas" style="left:8%;top:82%;width:14%;aspect-ratio:0.7275;background-image:url('img/archivo-15.jpg')"></div>
+      <div class="slot scatter-tile has-image" role="img" aria-label="blusa blanca frente a una puerta tallada" style="left:62%;top:80%;width:24%;aspect-ratio:1.5;background-image:url('img/archivo-14.jpg')"></div>
 
-      <span class="scatter-text label" style="left:2%;top:2%;">Tanda 01</span>
-      <span class="scatter-text label" style="left:8%;top:6%;">Muestras</span>
-      <span class="scatter-text label" style="left:63%;top:12%;">Telas</span>
-      <span class="scatter-text label" style="left:56%;top:20%;">Taller</span>
-      <span class="scatter-text label" style="left:66%;top:28%;">Patrones</span>
-      <span class="scatter-text label" style="left:5%;top:62%;">Proceso</span>
+      <span class="scatter-text label" style="left:2%;top:3%;">taller</span>
+      <span class="scatter-text label" style="left:62%;top:7%;">telas</span>
+      <span class="scatter-text label" style="left:86%;top:31%;">proceso</span>
+      <span class="scatter-text label" style="left:2%;top:60%;">tanda 01</span>
+      <span class="scatter-text label" style="left:87%;top:72%;">muestras</span>
+      <span class="scatter-text label" style="left:4%;top:37%;">patrones</span>
 
-      <p class="scatter-text note" style="left:2%;top:46%;width:20%;margin:0;">Una nota sobre este archivo — cuándo se hizo, para qué era.</p>
-      <p class="scatter-text note" style="left:62%;top:82%;width:30%;margin:0;">Una segunda nota — un crédito, un material, o algo del proceso.</p>
+      <p class="scatter-text note" style="left:2%;top:44%;width:16%;margin:0;">Una nota sobre este archivo — cuándo se hizo, para qué era.</p>
+      <p class="scatter-text note" style="left:85%;top:47%;width:14%;margin:0;">Una segunda nota — un crédito, un material, o algo del proceso.</p>
     </div>
   </div>
 </section>
@@ -488,18 +485,17 @@
     }
   })();
 
-  /* ---------- video de fondo ---------- */
-  const brandVideo = document.getElementById("brandVideo");
-  const videoInput = document.getElementById("videoInput");
-  videoInput.addEventListener("change", () => {
-    const file = videoInput.files[0];
-    if (!file) return;
-    brandVideo.src = URL.createObjectURL(file);
-    brandVideo.play().catch(() => {});
-    document.getElementById("brandMark").classList.add("on-film");
-    document.getElementById("brandTagline").classList.add("on-film");
-    document.getElementById("filmUpload").classList.add("on-film");
-  });
+  /* ---------- video de fondo: si el navegador bloquea el autoplay, se intenta otra vez ---------- */
+  (function film(){
+    const v = document.getElementById("brandVideo");
+    if (!v) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches){ v.removeAttribute("autoplay"); v.pause(); return; }
+    const p = v.play();
+    if (p && p.catch) p.catch(() => {
+      const retry = () => { v.play().catch(()=>{}); window.removeEventListener("touchstart", retry); };
+      window.addEventListener("touchstart", retry, { passive:true });
+    });
+  })();
 
   /* ---------- archivo: hover agranda, clic trae al frente ---------- */
   const tiles = Array.from(document.querySelectorAll(".scatter-tile"));

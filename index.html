@@ -7,7 +7,7 @@
 <meta name="description" content="Marina Sandoval — diseñadora de modas. Sostenibilidad, calzado y operaciones. Ciudad de México.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,16 +33,15 @@
   </symbol>
 </svg>
 
-<!-- INTRO: aparece una vez por visita, como spacelab -->
+<!-- INTRO: las letras llegan regadas y se juntan, como pantalla de carga -->
 <div class="intro" id="introOverlay" aria-hidden="true">
-  <div class="intro-grid"><span class="plus" style="transition-delay:0ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:40ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:80ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:120ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:160ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:200ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:240ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:60ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:100ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:140ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:180ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:220ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:260ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:300ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:120ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:160ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:200ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:240ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:280ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:320ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:360ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:180ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:220ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:260ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:300ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:340ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:380ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:420ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:240ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:280ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:320ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:360ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:400ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:440ms"><span class="plus-x"></span></span><span class="plus" style="transition-delay:480ms"><span class="plus-x"></span></span></div>
   <div class="intro-frame"></div>
-  <span class="intro-name write" id="introName">Marina Sandoval</span>
+  <span class="intro-name" id="introName">marina sandoval</span>
   <span class="intro-corner tl">diseño · operaciones · producción</span>
   <span class="intro-corner tr">cdmx <span data-clock>--:--</span></span>
-  <span class="intro-corner bl">moda — ciudad de méxico</span>
-  <button class="intro-corner br" id="introSkip" type="button" tabindex="-1">entrar ↓</button>
-  <div class="intro-bar"><i></i></div>
+  <span class="intro-corner bl">cargando</span>
+  <span class="intro-corner br intro-count" id="introCount">000</span>
+  <div class="intro-bar"><i id="introBar"></i></div>
 </div>
 
 <nav class="nav" id="siteNav">
@@ -62,10 +61,8 @@
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="slot" data-slot>
-    <span class="slot-hint">agregar retrato</span>
-    <input type="file" accept="image/*">
-  </div>
+  <div class="slot has-image hero-photo" role="img" aria-label="Camisa blanca sobre papel"
+       style="background-image:url('img/hero-camisa.jpg')"></div>
   <div class="hero-foot">
     <h1 class="hero-name write" id="heroName">Marina Sandoval</h1>
     <span class="label label-ink">ciudad de méxico</span>
@@ -180,6 +177,10 @@
           <span class="label label-ink">consultoría de diseño</span>
         </div>
         <div>
+          <div class="hcard-photos">
+            <img src="img/esant-01.jpg" alt="Esånt — chaqueta negra, detalle" loading="lazy">
+            <img src="img/esant-02.jpg" alt="Esånt — blusa transparente" loading="lazy">
+          </div>
           <h3 class="hcard-title">esånt</h3>
           <p class="hcard-place">Monterrey</p>
           <ul class="cv-points">
@@ -314,7 +315,7 @@
 
     <div class="corner tl">
       <span class="label label-ink">contacto</span>
-      <a href="mailto:marsandovv@gmail.com">marsandovv@gmail.com</a>
+      <span>marina sandoval</span>
     </div>
     <div class="corner tr">
       <a href="https://instagram.com/m._harina" target="_blank" rel="noopener">@m._harina</a>
@@ -330,24 +331,14 @@
     </div>
 
     <div class="stage-center">
-      <!-- el perrito sobre su cuadrícula de construcción -->
-      <figure class="plate">
-        <div class="plate-grid">
-          <svg class="plate-dog" aria-hidden="true"><use href="#dogmark"/></svg>
-        </div>
-        <div class="dim dim-v" aria-hidden="true"><span>a</span></div>
-        <div class="dim dim-h" aria-hidden="true"><span>b</span></div>
-        <figcaption class="plate-note">perro de colima, reconstruido sobre retícula. a = alto · b = largo</figcaption>
-      </figure>
-
-      <!-- tu foto -->
       <div class="me">
         <div class="slot me-photo" data-slot>
           <span class="slot-hint">tu foto</span>
           <input type="file" accept="image/*">
         </div>
-        <span class="label label-ink">marina sandoval</span>
       </div>
+      <a class="big-mail" href="mailto:marsandovv@gmail.com">marsandovv@gmail.com</a>
+      <span class="label label-ink">diseño · operaciones · producción</span>
     </div>
 
   </div>
@@ -383,48 +374,100 @@
     setInterval(tick, 10000);
   })();
 
-  /* ---------- intro: una vez por visita ---------- */
+  /* ---------- intro: letras regadas que se juntan (una vez por visita) ---------- */
   (function intro(){
     const ov = document.getElementById("introOverlay");
     const hero = document.getElementById("heroName");
     const name = document.getElementById("introName");
+    const count = document.getElementById("introCount");
+    const bar = document.getElementById("introBar");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let seen = false;
     try { seen = sessionStorage.getItem("ms-intro") === "1"; } catch(e){}
 
-    const writeHero = (instant) => {
+    const showHero = (instant) => {
       if (!hero) return;
       if (instant) hero.classList.add("no-anim");
       hero.classList.add("is-in");
     };
-
     if (!ov || seen || reduce){
       if (ov) ov.remove();
-      setTimeout(() => writeHero(reduce), 250);
+      setTimeout(() => showHero(reduce), 200);
       return;
     }
     try { sessionStorage.setItem("ms-intro", "1"); } catch(e){}
-
     document.documentElement.style.overflow = "hidden";
-    let left = false;
+
+    // cada letra en su propia caja
+    const text = name.textContent;
+    name.textContent = "";
+    const letters = [];
+    Array.from(text).forEach(ch => {
+      if (ch === " "){ name.appendChild(document.createTextNode(" ")); return; }
+      const s = document.createElement("span");
+      s.className = "il";
+      s.textContent = ch;
+      name.appendChild(s);
+      letters.push(s);
+    });
+
+    const SCATTER = 650;   // ms regadas antes de juntarse
+    const GATHER  = 1500;  // ms que tardan en juntarse
+    const TOTAL   = 3400;  // ms hasta que sube la cortina
+    let left = false, raf;
+
     const leave = () => {
       if (left) return;
       left = true;
-      writeHero(true);
+      cancelAnimationFrame(raf);
+      showHero(true);
       ov.classList.add("is-leaving");
       document.documentElement.style.overflow = "";
       setTimeout(() => ov.remove(), 1100);
     };
 
-    requestAnimationFrame(() => ov.classList.add("is-on"));
+    const start = () => {
+      const vw = window.innerWidth, vh = window.innerHeight;
+      const rand = (a, b) => a + Math.random() * (b - a);
+      // posición final de cada letra → la mando a un punto al azar de la pantalla
+      letters.forEach(l => {
+        const r = l.getBoundingClientRect();
+        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        const tx = rand(0.08, 0.92) * vw - cx;
+        const ty = rand(0.14, 0.86) * vh - cy;
+        l.style.transform = "translate(" + tx + "px," + ty + "px) rotate(" + rand(-40, 40) + "deg) scale(" + rand(0.55, 0.9) + ")";
+      });
+      name.classList.add("is-ready");
+      ov.classList.add("is-on");
+      name.getBoundingClientRect();
+
+      // se juntan, cada una con su propio retraso
+      setTimeout(() => {
+        letters.forEach((l, i) => {
+          const d = Math.round(rand(0, 260) + i * 20);
+          l.style.transition = "transform " + GATHER + "ms cubic-bezier(.7,0,.15,1) " + d + "ms";
+          l.style.transform = "none";
+        });
+      }, SCATTER);
+
+      // contador y línea de carga
+      const t0 = performance.now();
+      const step = (now) => {
+        const p = Math.min(1, (now - t0) / (TOTAL - 450));
+        const e = 1 - Math.pow(1 - p, 2);
+        count.textContent = String(Math.round(e * 100)).padStart(3, "0");
+        bar.style.transform = "scaleX(" + e + ")";
+        if (p < 1) raf = requestAnimationFrame(step);
+      };
+      raf = requestAnimationFrame(step);
+      setTimeout(leave, TOTAL);
+    };
+
     const fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
-    Promise.race([fontsReady, new Promise(r => setTimeout(r, 900))]).then(() => {
-      setTimeout(() => name.classList.add("is-in"), 350);
-    });
-    const timer = setTimeout(leave, 3300);
-    const skip = () => { clearTimeout(timer); leave(); };
+    Promise.race([fontsReady, new Promise(r => setTimeout(r, 900))]).then(start);
+
     ["click","wheel","touchstart","keydown"].forEach(ev =>
-      window.addEventListener(ev, skip, { once:true, passive:true }));
+      window.addEventListener(ev, () => leave(), { once:true, passive:true }));
   })();
 
   /* ---------- EDITA AQUÍ: tus posts ---------- */
