@@ -7,10 +7,20 @@
 <meta name="description" content="Ponchito — ropa hecha en Ciudad de México.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- gancho de ropa: se define una vez -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="hanger" viewBox="0 0 200 90">
+    <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M100 42 L100 30 C100 23 109 21 109 13 C109 6 103 2 97 2 C91 2 87 6 87 11"/>
+      <path d="M100 42 L12 84 C7 86.5 8 89 13 89 L187 89 C192 89 193 86.5 188 84 Z"/>
+    </g>
+  </symbol>
+</svg>
 
 <nav class="nav" id="siteNav">
   <a href="#top" class="nav-mark">
@@ -20,7 +30,7 @@
   </a>
   <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#looks">Looks</a></li>
+    <li><a href="#looks">looks</a></li>
     <li><a href="#archive">Archivo</a></li>
     <li><a href="#tienda">Contacto</a></li>
     <li><a href="index.html">Marina Sandoval</a></li>
@@ -60,38 +70,84 @@
   </span>
 </div>
 
-<!-- LOOKS -->
+<!-- LOOKS: riel de ropa en movimiento -->
 <section id="looks" class="section-pad">
   <div class="wrap">
     <div class="section-head">
       <h2 class="title-xl split">looks</h2>
+      <span class="label label-ink">pasa el cursor para detener el riel</span>
     </div>
+  </div>
 
-    <div class="look-list" id="look">
-      <div class="look-row">
-        <div class="slot look-photo is-tall" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
-        <div class="slot look-photo" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
-        <div class="look-caption">
-          <span class="label">Look 01</span>
-          <span class="cap-text">Describe la pieza — tela, corte, o de dónde salió.</span>
-        </div>
-      </div>
-      <div class="look-row">
-        <div class="slot look-photo" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
-        <div class="slot look-photo is-tall" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
-        <div class="look-caption">
-          <span class="label">Look 02</span>
-          <span class="cap-text">Describe la pieza — tela, corte, o de dónde salió.</span>
-        </div>
-      </div>
-      <div class="look-row">
-        <div class="slot look-photo is-tall" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
-        <div class="slot look-photo" data-slot><span class="slot-hint">Agregar foto</span><input type="file" accept="image/*"></div>
-        <div class="look-caption">
-          <span class="label">Look 03</span>
-          <span class="cap-text">Describe la pieza — tela, corte, o de dónde salió.</span>
-        </div>
-      </div>
+  <div class="rack" data-dir="left">
+    <div class="rail"></div>
+    <div class="rack-track">
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="1"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 1</figcaption>
+      </figure>
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="2"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 2</figcaption>
+      </figure>
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="3"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 3</figcaption>
+      </figure>
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="4"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 4</figcaption>
+      </figure>
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="5"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 5</figcaption>
+      </figure>
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="6"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 6</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="rack" data-dir="right">
+    <div class="rail"></div>
+    <div class="rack-track">
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="7"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 7</figcaption>
+      </figure>
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="8"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 8</figcaption>
+      </figure>
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="9"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 9</figcaption>
+      </figure>
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="10"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 10</figcaption>
+      </figure>
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="11"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 11</figcaption>
+      </figure>
+      <figure class="garment">
+        <svg class="hanger" aria-hidden="true"><use href="#hanger"/></svg>
+        <div class="slot frame" data-slot data-look="12"><span class="slot-hint">+ foto</span><input type="file" accept="image/*"></div>
+        <figcaption class="tag">look 12</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -184,20 +240,115 @@
   }));
 
   /* ---------- fotos (vista previa) ---------- */
-  document.querySelectorAll(".slot[data-slot]").forEach(slot => {
+  document.addEventListener("click", e => {
+    const slot = e.target.closest(".slot[data-slot]");
+    if (!slot || e.target.tagName === "INPUT") return;
     const input = slot.querySelector("input[type=file]");
-    slot.addEventListener("click", e => { if (e.target !== input) input.click(); });
-    input.addEventListener("change", () => {
-      const file = input.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        slot.style.backgroundImage = "url(" + reader.result + ")";
-        slot.classList.add("has-image");
-      };
-      reader.readAsDataURL(file);
-    });
+    if (input) input.click();
   });
+  document.addEventListener("change", e => {
+    const input = e.target;
+    if (!input.matches || !input.matches(".slot input[type=file]")) return;
+    const slot = input.closest(".slot");
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const key = slot.dataset.look;
+      const all = key ? document.querySelectorAll('.slot[data-look="' + key + '"]') : [slot];
+      all.forEach(s => {
+        s.style.backgroundImage = "url(" + reader.result + ")";
+        s.classList.add("has-image");
+      });
+    };
+    reader.readAsDataURL(file);
+  });
+
+  /* ---------- riel de ropa: corre sin fin, se detiene al pasar el cursor ---------- */
+  (function racks(){
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const racks = Array.from(document.querySelectorAll(".rack"));
+    if (!racks.length) return;
+
+    const SPEED = 38;          // px por segundo
+    const states = [];
+
+    racks.forEach(rack => {
+      const track = rack.querySelector(".rack-track");
+      const originals = Array.from(track.children);
+      if (reduce){ rack.classList.add("is-static"); return; }
+
+      function addSet(){
+        originals.forEach(o => {
+          const c = o.cloneNode(true);
+          c.setAttribute("aria-hidden", "true");
+          c.querySelectorAll("input").forEach(i => i.tabIndex = -1);
+          track.appendChild(c);
+        });
+      }
+      addSet();
+
+      const st = {
+        rack, track, originals,
+        dir: rack.dataset.dir === "right" ? 1 : -1,
+        x: 0, speed: 0, hover: false, visible: true, setW: 0
+      };
+      st.measure = () => {
+        st.setW = track.children[originals.length].offsetLeft - track.children[0].offsetLeft;
+        let guard = 0;
+        while (st.setW > 0 && track.scrollWidth < st.setW + window.innerWidth * 1.5 && guard++ < 8) addSet();
+        if (st.dir > 0) st.x = -st.setW;
+      };
+      st.measure();
+
+      rack.addEventListener("mouseenter", () => st.hover = true);
+      rack.addEventListener("mouseleave", () => st.hover = false);
+      rack.addEventListener("focusin",  () => st.hover = true);
+      rack.addEventListener("focusout", () => st.hover = false);
+      states.push(st);
+    });
+    if (!states.length) return;
+
+    if ("IntersectionObserver" in window){
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        const st = states.find(s => s.rack === e.target);
+        if (st) st.visible = e.isIntersecting;
+      }));
+      states.forEach(s => io.observe(s.rack));
+    }
+
+    // el scroll empuja el riel un poco más rápido, y luego se calma
+    let lastY = window.scrollY, boost = 0;
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY;
+      boost = Math.min(420, boost + Math.abs(y - lastY) * 1.6);
+      lastY = y;
+    }, { passive:true });
+
+    let prev = performance.now();
+    function tick(now){
+      const dt = Math.min(0.05, (now - prev) / 1000);
+      prev = now;
+      boost *= 0.92;
+      states.forEach(st => {
+        if (!st.visible || !st.setW) return;
+        const goal = st.hover ? 0 : SPEED + boost;
+        st.speed += (goal - st.speed) * 0.08;
+        st.x += st.dir * st.speed * dt;
+        if (st.dir < 0 && st.x <= -st.setW) st.x += st.setW;
+        if (st.dir > 0 && st.x >= 0) st.x -= st.setW;
+        st.track.style.transform = "translate3d(" + st.x + "px,0,0)";
+      });
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    let rt;
+    window.addEventListener("resize", () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => states.forEach(s => s.measure()), 150);
+    });
+  })();
 
   /* ---------- video de fondo ---------- */
   const brandVideo = document.getElementById("brandVideo");
